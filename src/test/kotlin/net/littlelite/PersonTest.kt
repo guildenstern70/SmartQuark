@@ -3,20 +3,21 @@ package net.littlelite
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured.given
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.startsWith
 import org.junit.jupiter.api.Test
 
 @QuarkusTest
-class ExampleResourceTest
+class PersonTest
 {
 
     @Test
-    fun testHelloEndpoint()
+    fun testPersonEndpoint()
     {
         given()
-                .`when`().get("/hello")
+                .`when`().get("/person")
                 .then()
                 .statusCode(200)
-                .body(`is`("hello"))
+                .body(`startsWith`("[{\"name\":\"Alessio\",\"surname\":\"Saltarin\",\"age\""))
     }
 
 }
