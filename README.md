@@ -1,4 +1,4 @@
-# smartquark project
+# SmartQuark project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -26,10 +26,9 @@ If you want to build an _über-jar_, just add the `--uber-jar` option to the com
 
 ## Creating a native executable
 
-You can create a native executable using: `./gradlew build -Dquarkus.package.type=native`.
+You can create a native executable using: `./build-native`.
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true`.
 
 You can then execute your native executable with: `./build/smartquark-0.1.0-runner`
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling#building-a-native-executable.
