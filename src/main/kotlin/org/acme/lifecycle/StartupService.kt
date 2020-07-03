@@ -1,6 +1,7 @@
 package org.acme.lifecycle;
 
 import io.quarkus.runtime.StartupEvent
+import io.quarkus.runtime.configuration.ProfileManager
 import net.littlelite.service.DBInitializer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -22,6 +23,7 @@ class StartupService
     fun onStart(@Observes ev: StartupEvent?)
     {
         logger.info("Starting up application")
+        logger.info("The application is starting with profile " + ProfileManager.getActiveProfile());
         this.dbInitializer.populateDB()
     }
 }

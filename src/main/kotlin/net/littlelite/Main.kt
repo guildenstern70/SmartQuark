@@ -5,6 +5,7 @@ import io.quarkus.runtime.QuarkusApplication
 import io.quarkus.runtime.annotations.QuarkusMain
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import javax.resource.spi.ConfigProperty
 
 @QuarkusMain
 open class Main : QuarkusApplication
