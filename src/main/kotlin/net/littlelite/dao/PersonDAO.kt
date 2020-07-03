@@ -1,12 +1,12 @@
 package net.littlelite.dao
 
-import io.quarkus.hibernate.orm.panache.kotlin.PanacheRepository
+import io.quarkus.hibernate.orm.panache.kotlin.PanacheRepositoryBase
 import net.littlelite.model.Person
 import javax.enterprise.context.ApplicationScoped
 
 
 @ApplicationScoped
-class PersonDAO : PanacheRepository<Person>
+class PersonDAO : PanacheRepositoryBase<Person, Int>
 {
     fun findByName(name: String): List<Person>
     {

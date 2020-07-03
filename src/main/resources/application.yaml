@@ -29,7 +29,7 @@ mp:
   quarkus:
     datasource:
       db-kind: pgsql
-      username: qedheeac
+      username: ${PG_USERNAME:xxxxxxxxxxxxxx}
       password: ${PG_PASSWORD:xxxxxxxxxxxxxx}
       jdbc:
         url: jdbc:postgresql://hanno.db.elephantsql.com:5432/qedheeac

@@ -1,5 +1,6 @@
 # Hide DB password
 run-pgsql.sh
+build-pgsql-native.sh
 
 # Eclipse
 .project
