@@ -17,7 +17,7 @@ class PersonTest
                 .`when`().get("/person")
                 .then()
                 .statusCode(200)
-                .body(`startsWith`("[{\"name\":\"Alessio\",\"surname\":\"Saltarin\",\"age\""))
+                .body(`startsWith`("[{\"id\""))
     }
 
 }
