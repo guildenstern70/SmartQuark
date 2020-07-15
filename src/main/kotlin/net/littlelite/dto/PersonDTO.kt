@@ -1,7 +1,9 @@
 package net.littlelite.dto
 
+import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.model.Person
 
+@RegisterForReflection
 data class PersonDTO(
         val name: String,
         val surname: String,

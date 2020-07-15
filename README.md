@@ -27,8 +27,18 @@ If you want to build an _über-jar_, just add the `--uber-jar` option to the com
 ## Creating a native executable
 
 You can create a native executable using: `./build-native`.
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true`.
-
 You can then execute your native executable with: `./build/smartquark-0.1.0-runner`
 
+## Creating a Docker native executable
+
+Prepare runnable exec:
+
+    ./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
+
+Run:
+ 
+    docker build -f src/main/docker/Dockerfile.native -t guildenstern70/smart-quark .
+    docker run -i --rm -p 8080:8080 guildenstern70/smart-quark
+    
+    
+    

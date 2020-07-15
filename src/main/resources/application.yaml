@@ -12,8 +12,8 @@ quarkus:
     path: banner.txt
   datasource:
     db-kind: postgresql
-    username: qedheeac
-    password: C34oIktzl2wJVaOppWbqLLjazeq9T1Vk
+    username: ${PG_USERNAME:xxxxxxxxxxxxxx}
+    password: ${PG_PASSWORD:xxxxxxxxxxxxxx}
     jdbc:
       url: jdbc:postgresql://hanno.db.elephantsql.com:5432/qedheeac
   hibernate-orm:
@@ -24,13 +24,4 @@ mp:
     scan:
       exclude:
         classes: net.littlelite.controller.WebController
-
-"%elephant":
-  quarkus:
-    datasource:
-      db-kind: pgsql
-      username: ${PG_USERNAME:xxxxxxxxxxxxxx}
-      password: ${PG_PASSWORD:xxxxxxxxxxxxxx}
-      jdbc:
-        url: jdbc:postgresql://hanno.db.elephantsql.com:5432/qedheeac
 
