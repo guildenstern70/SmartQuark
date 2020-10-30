@@ -9,9 +9,9 @@ import javax.persistence.Id
 @Entity
 @RegisterForReflection
 data class Person(
-        val name: String,
-        val surname: String,
-        val age: Int
+        var name: String,
+        var surname: String,
+        var age: Int
 )
 {
     constructor() : this("?", "?", 0)
