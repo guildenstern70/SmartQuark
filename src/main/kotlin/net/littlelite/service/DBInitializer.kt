@@ -1,5 +1,6 @@
 package net.littlelite.service
 
+import net.littlelite.dao.PersonDAO
 import net.littlelite.model.Person
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.slf4j.Logger
@@ -20,17 +21,19 @@ class DBInitializer(
     private val logger: Logger = LoggerFactory.getLogger(DBInitializer::class.java)
 
     @Inject
-    @field: Default
-    lateinit var em: EntityManager
+    lateinit var personDAO: PersonDAO
 
     @Transactional
     fun populateDB()
     {
-        logger.info("Populating DB $dbUrl")
-        this.createPerson("Alessio", "Saltarin")
-        this.createPerson("Renzo", "Piano")
-        this.createPerson("Elena", "Zambrelli")
-        logger.info("Done.")
+        if (this.personDAO.count() == 0L)
+        {
+            logger.info("Populating DB $dbUrl")
+            this.createPerson("Alessio", "Saltarin")
+            this.createPerson("Renzo", "Piano")
+            this.createPerson("Elena", "Zambrelli")
+            logger.info("Done.")
+        }
     }
 
     @Transactional
@@ -38,6 +41,6 @@ class DBInitializer(
     {
         val age = Random.nextInt(1, 100)
         val person = Person(name, surname, age)
-        em.persist(person)
+        this.personDAO.persist(person)
     }
 }

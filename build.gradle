@@ -1,7 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version "1.4.10"
     id "org.jetbrains.kotlin.plugin.allopen" version "1.4.10"
-    id 'io.quarkus'
+    id 'io.quarkus' version "1.9.1.Final"
 }
 
 repositories {
@@ -9,22 +9,22 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.quarkus:quarkus-agroal'
-    implementation 'io.quarkus:quarkus-qute'
-    implementation 'io.quarkus:quarkus-resteasy'
-    implementation 'io.quarkus:quarkus-resteasy-jackson'
-    implementation 'io.quarkus:quarkus-resteasy-qute'
-    implementation 'io.quarkus:quarkus-kotlin'
-    implementation 'io.quarkus:quarkus-smallrye-openapi'
-    implementation 'io.quarkus:quarkus-config-yaml'
-    implementation 'io.quarkus:quarkus-hibernate-orm-panache-kotlin'
-    implementation 'io.quarkus:quarkus-jdbc-h2'
-    implementation 'io.quarkus:quarkus-jdbc-postgresql'
+    implementation "io.quarkus:quarkus-agroal:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-qute:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-resteasy:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-resteasy-jackson:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-resteasy-qute:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-kotlin:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-smallrye-openapi:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-config-yaml:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:kotlin-extensions'
+    testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
+    testImplementation "io.rest-assured:kotlin-extensions"
 }
 
 group 'net.littlelite'

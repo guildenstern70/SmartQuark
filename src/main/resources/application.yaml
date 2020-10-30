@@ -15,10 +15,11 @@ quarkus:
     username: ${PG_USERNAME:xxxxxxxxxxxxxx}
     password: ${PG_PASSWORD:xxxxxxxxxxxxxx}
     jdbc:
-      url: jdbc:postgresql://hattie.db.elephantsql.com:5432/cvznlzlk
+      url: ${PG_URL:jdbc:postgresql://pgsql.com:5432/dbname}
   hibernate-orm:
     database:
-      generation: create-drop
+      # other valid options are: none, create, create, drop, update
+      generation: drop-and-create
 mp:
   openapi:
     scan:
