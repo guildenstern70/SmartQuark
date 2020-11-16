@@ -1,7 +1,7 @@
-package net.littlelite.dto
+package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
-import net.littlelite.model.Person
+import net.littlelite.smartquark.model.Person
 
 @RegisterForReflection
 data class PersonDTO(

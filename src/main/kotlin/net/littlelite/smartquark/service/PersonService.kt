@@ -1,8 +1,8 @@
-package net.littlelite.service
+package net.littlelite.smartquark.service
 
-import net.littlelite.dao.PersonDAO
-import net.littlelite.dto.PersonDTO
-import net.littlelite.model.Person
+import net.littlelite.smartquark.dao.PersonDAO
+import net.littlelite.smartquark.dto.PersonDTO
+import net.littlelite.smartquark.model.Person
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.enterprise.context.ApplicationScoped

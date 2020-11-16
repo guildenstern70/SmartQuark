@@ -1,8 +1,8 @@
-package net.littlelite.controller
+package net.littlelite.smartquark.controller
 
-import net.littlelite.dto.PersonDTO
-import net.littlelite.model.Person
-import net.littlelite.service.PersonService
+import net.littlelite.smartquark.dto.PersonDTO
+import net.littlelite.smartquark.model.Person
+import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
 import javax.inject.Inject
 import javax.ws.rs.*

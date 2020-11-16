@@ -1,4 +1,4 @@
-package net.littlelite
+package net.littlelite.smartquark
 
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured.given

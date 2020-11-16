@@ -1,4 +1,4 @@
-package net.littlelite.controller
+package net.littlelite.smartquark.controller
 
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance

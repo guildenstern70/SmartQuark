@@ -1,7 +1,7 @@
-package net.littlelite.dao
+package net.littlelite.smartquark.dao
 
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheRepositoryBase
-import net.littlelite.model.Person
+import net.littlelite.smartquark.model.Person
 import javax.enterprise.context.ApplicationScoped
 
 

@@ -1,4 +1,4 @@
-package net.littlelite.service;
+package net.littlelite.smartquark.service;
 
 import io.quarkus.runtime.StartupEvent
 import io.quarkus.runtime.configuration.ProfileManager

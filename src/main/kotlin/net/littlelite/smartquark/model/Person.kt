@@ -1,4 +1,4 @@
-package net.littlelite.model
+package net.littlelite.smartquark.model
 
 import io.quarkus.runtime.annotations.RegisterForReflection
 import javax.persistence.Entity

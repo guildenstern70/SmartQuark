@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
 }
 
-group 'net.littlelite'
+group 'net.littlelite.smartquark'
 version '0.1.0'
 
 dependencies {
@@ -25,13 +25,11 @@ dependencies {
     implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
-    implementation enforcedPlatform('io.quarkus:quarkus-bom:1.9.2.Final')
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
 
     testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
     testImplementation "io.rest-assured:kotlin-extensions"
 }
-
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
