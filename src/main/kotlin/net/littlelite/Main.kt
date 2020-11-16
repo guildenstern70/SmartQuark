@@ -3,6 +3,7 @@ package net.littlelite
 import io.quarkus.runtime.Quarkus
 import io.quarkus.runtime.QuarkusApplication
 import io.quarkus.runtime.annotations.QuarkusMain
+import org.graalvm.nativeimage.ImageInfo
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.resource.spi.ConfigProperty
@@ -16,7 +17,7 @@ open class Main : QuarkusApplication
     private fun hello()
     {
         logger.info("*****************************************************************")
-        logger.info("  Smart Quark v.$version")
+        logger.info("  SmartQuark v.$version")
         logger.info("  JVM: " + System.getProperty("java.version"))
         logger.info("  Listening on: http://localhost:8080")
         logger.info("*****************************************************************")

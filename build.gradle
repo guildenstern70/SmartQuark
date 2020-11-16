@@ -1,7 +1,7 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version "1.4.10"
-    id "org.jetbrains.kotlin.plugin.allopen" version "1.4.10"
-    id 'io.quarkus' version "1.9.1.Final"
+    id 'org.jetbrains.kotlin.jvm' version "1.3.72"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.3.72"
+    id 'io.quarkus' version "1.9.2.Final"
 }
 
 repositories {
@@ -21,7 +21,6 @@ dependencies {
     implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 
     testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
     testImplementation "io.rest-assured:kotlin-extensions"
