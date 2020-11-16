@@ -11,11 +11,11 @@ quarkus:
   banner:
     path: banner.txt
   datasource:
-    db-kind: postgresql
-    username: ${PG_USERNAME:xxxxxxxxxxxxxx}
-    password: ${PG_PASSWORD:xxxxxxxxxxxxxx}
+    db-kind: ${DB_KIND:h2}
+    username: ${DB_USERNAME:xxxxxxxxxxxxxx}
+    password: ${DB_PASSWORD:xxxxxxxxxxxxxx}
     jdbc:
-      url: ${PG_URL:jdbc:postgresql://pgsql.com:5432/dbname}
+      url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb.mv.db}
   hibernate-orm:
     database:
       # other valid options are: none, create, create, drop, update
