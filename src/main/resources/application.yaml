@@ -20,6 +20,8 @@ quarkus:
     database:
       # other valid options are: none, create, create, drop, update
       generation: drop-and-create
+  native:
+    native-image-xmx: 4g
 mp:
   openapi:
     scan:

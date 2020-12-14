@@ -1,6 +1,9 @@
 # Hide DB password
 build-native.sh
 run-native.sh
+docker-env.txt
+build-docker-native.sh
+run-docker-native.sh
 
 # Eclipse
 .project
