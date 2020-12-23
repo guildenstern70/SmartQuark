@@ -1,3 +1,10 @@
+/*
+ * The SmartQuark Project
+ * Copyright (c) Alessio Saltarin, 2020.
+ * This software is licensed under MIT License
+ * See LICENSE
+ */
+
 package net.littlelite.smartquark
 
 import io.quarkus.test.junit.QuarkusTest
@@ -16,7 +23,7 @@ class PersonTest
                 .`when`().get("/person")
                 .then()
                 .statusCode(200)
-                .body(`startsWith`("[{\"id\""))
+                .body(startsWith("[{\"id\""))
     }
 
 }

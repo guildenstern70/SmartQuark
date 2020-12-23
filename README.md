@@ -10,7 +10,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 Note that the Kotlin runtime version must met the Quarkus-Kotlin plugin Kotlin version (now it's 1.3.72)
 
-    gradle dependencies | grep quarkus-kotlin
+    gradle dependencies | grep kotlin
 
 ### Packaging and running the application
 

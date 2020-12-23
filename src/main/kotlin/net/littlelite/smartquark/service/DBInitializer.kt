@@ -1,3 +1,10 @@
+/*
+ * The SmartQuark Project
+ * Copyright (c) Alessio Saltarin, 2020.
+ * This software is licensed under MIT License
+ * See LICENSE
+ */
+
 package net.littlelite.smartquark.service
 
 import net.littlelite.smartquark.dao.PersonDAO
@@ -23,7 +30,6 @@ class DBInitializer(
     @Inject
     lateinit var personDAO: PersonDAO
 
-    @Transactional
     fun populateDB()
     {
         if (this.personDAO.count() == 0L)

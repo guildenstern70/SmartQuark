@@ -1,6 +1,14 @@
+/*
+ * The SmartQuark Project
+ * Copyright (c) Alessio Saltarin, 2020.
+ * This software is licensed under MIT License
+ * See LICENSE
+ */
+
 package net.littlelite.smartquark.controller
 
 import net.littlelite.smartquark.dto.PersonDTO
+import net.littlelite.smartquark.dto.ResultDTO
 import net.littlelite.smartquark.model.Person
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
@@ -20,9 +28,11 @@ class PersonController
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get all persons")
-    fun allPersons(): List<Person>
+    fun allPersons(): Response
     {
-        return this.personService.getAllPersons()
+        return Response
+            .ok(this.personService.getAllPersons())
+            .build()
     }
 
     @GET
@@ -54,9 +64,10 @@ class PersonController
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Create a person")
-    fun createPerson(personDTO: PersonDTO): Person
+    fun createPerson(personDTO: PersonDTO): Response
     {
-        return this.personService.addPerson(personDTO)
+        val createdPerson = this.personService.addPerson(personDTO)
+        return Response.ok(createdPerson).build()
     }
 
     @DELETE
@@ -64,7 +75,9 @@ class PersonController
     @Operation(summary = "Delete a person")
     fun deletePerson(@PathParam("id") id: Int): Response
     {
-        this.personService.deletePerson(id)
-        return Response.ok().build()
+        val deletedOk = this.personService.deletePerson(id)
+        val result = if (deletedOk) ResultDTO("OK", "Person deleted")
+            else ResultDTO("KO", "Person was not deleted")
+        return Response.ok(result).build()
     }
 }

@@ -26,5 +26,6 @@ mp:
   openapi:
     scan:
       exclude:
-        classes: net.littlelite.controller.WebController
+        classes: net.littlelite.smartquark.controller.WebController
+
 

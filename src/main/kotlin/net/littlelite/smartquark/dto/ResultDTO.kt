@@ -5,9 +5,9 @@
  * See LICENSE
  */
 
-package net.littlelite.smartquark
+package net.littlelite.smartquark.dto
 
-import io.quarkus.test.junit.NativeImageTest
-
-@NativeImageTest
-class NativePersonIT : PersonTest()
+data class ResultDTO(
+    val operationResult: String,
+    val message: String
+)
