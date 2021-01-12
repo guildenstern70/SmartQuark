@@ -1,4 +1,7 @@
-# SmartQuark project
+# SmartQuark
+
+[![Build Status](https://travis-ci.com/guildenstern70/SmartQuark.svg?branch=master)](https://travis-ci.com/guildenstern70/SmartQuark)
+
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
