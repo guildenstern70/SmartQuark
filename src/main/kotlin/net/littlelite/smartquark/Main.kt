@@ -23,7 +23,7 @@ open class Main : QuarkusApplication
     {
         logger.info("*****************************************************************")
         logger.info("  SmartQuark v.$version")
-        logger.info("  JVM: " + System.getProperty("java.version"))
+        logger.info("  JVM: " + System.getProperty("java.vendor") + " " + System.getProperty("java.version"))
         logger.info("  Listening on: http://localhost:8080")
         logger.info("*****************************************************************")
     }
