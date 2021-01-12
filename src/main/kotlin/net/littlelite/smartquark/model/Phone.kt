@@ -13,15 +13,15 @@ import javax.persistence.*
 @Suppress("JpaObjectClassSignatureInspection")
 @Entity
 @RegisterForReflection
-data class Person(
-        var name: String,
-        var surname: String,
-        var age: Int
+class Phone(
+    var prefix: String,
+    var number: String
 )
 {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Int = 0
 
-    @OneToMany(mappedBy = "person", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-    var phoneNumbers: MutableSet<Phone> = mutableSetOf()
+    @ManyToOne
+    var person: Person? = null
 }

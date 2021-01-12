@@ -8,6 +8,9 @@ quarkus:
   swagger-ui:
     always-include: true
     path: "/swagger-ui"
+    theme: "feeling-blue"
+    title: "SmartQuark API | Swagger UI"
+    urls-primary-name: "SmartQuark API"
   banner:
     path: banner.txt
   datasource:
@@ -15,7 +18,7 @@ quarkus:
     username: ${DB_USERNAME:xxxxxxxxxxxxxx}
     password: ${DB_PASSWORD:xxxxxxxxxxxxxx}
     jdbc:
-      url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb.mv.db}
+      url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb}
   hibernate-orm:
     database:
       # other valid options are: none, create, create, drop, update
