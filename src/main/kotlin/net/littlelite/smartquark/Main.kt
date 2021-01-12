@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2020.
+ * Copyright (c) Alessio Saltarin, 2021.
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -10,10 +10,8 @@ package net.littlelite.smartquark
 import io.quarkus.runtime.Quarkus
 import io.quarkus.runtime.QuarkusApplication
 import io.quarkus.runtime.annotations.QuarkusMain
-import org.graalvm.nativeimage.ImageInfo
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import javax.resource.spi.ConfigProperty
 
 @QuarkusMain
 open class Main : QuarkusApplication

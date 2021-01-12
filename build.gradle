@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2020.
+ * Copyright (c) Alessio Saltarin, 2021.
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -32,6 +32,7 @@ dependencies {
     implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-smallrye-health:${quarkusPlatformVersion}"
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
 
     testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"

@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2020.
+ * Copyright (c) Alessio Saltarin, 2021.
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -30,11 +30,14 @@ class DBInitializer(
     @Inject
     lateinit var personDAO: PersonDAO
 
+    @ConfigProperty(name = "quarkus.datasource.db-kind")
+    lateinit var database: String
+
     fun populateDB()
     {
         if (this.personDAO.count() == 0L)
         {
-            logger.info("Populating DB $dbUrl")
+            logger.info("Populating DB $dbUrl on database $database")
             this.createPerson("Alessio", "Saltarin")
             this.createPerson("Renzo", "Piano")
             this.createPerson("Elena", "Zambrelli")
