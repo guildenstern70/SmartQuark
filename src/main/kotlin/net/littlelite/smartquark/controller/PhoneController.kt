@@ -7,8 +7,10 @@
 
 package net.littlelite.smartquark.controller
 
+import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
+import javax.inject.Inject
 import javax.ws.rs.Consumes
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -22,13 +24,16 @@ import javax.ws.rs.core.Response
 @Tag(name = "Phone Controller", description = "Phone related APIs")
 class PhoneController
 {
+    @Inject
+    lateinit var personService: PersonService
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Get all persons")
+    @Operation(summary = "Get all phones")
     fun allPhones(): Response
     {
         return Response
-            .ok(listOf("1", "2", 3))
+            .ok(this.personService.getAllPhones())
             .build()
     }
 }

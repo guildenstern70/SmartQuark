@@ -14,17 +14,24 @@ import net.littlelite.smartquark.model.Person
 data class PersonDTO(
         val name: String,
         val surname: String,
-        val age: Int
+        val age: Int,
+        val phones: Set<PhoneDTO>
 )
 {
 
-    fun toPerson() = Person(this.name, this.surname, this.age)
+    fun toPerson(): Person
+    {
+        val person = Person(this.name, this.surname, this.age)
+        person.setPhones(phones.map { it.toPhone() }.toSet())
+        return person
+    }
 
     companion object
     {
         fun fromPerson(person: Person): PersonDTO
         {
-            return PersonDTO(person.name, person.surname, person.age)
+            val phonesDTO = person.getPhones().map { PhoneDTO.fromPhone(it) }.toSet()
+            return PersonDTO(person.name, person.surname, person.age, phonesDTO)
         }
     }
 }

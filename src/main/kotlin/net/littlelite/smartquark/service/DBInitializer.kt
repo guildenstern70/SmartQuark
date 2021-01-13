@@ -8,6 +8,7 @@
 package net.littlelite.smartquark.service
 
 import net.littlelite.smartquark.dao.PersonDAO
+import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.model.Person
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.slf4j.Logger
@@ -28,28 +29,29 @@ class DBInitializer(
     private val logger: Logger = LoggerFactory.getLogger(DBInitializer::class.java)
 
     @Inject
-    lateinit var personDAO: PersonDAO
-
-    @ConfigProperty(name = "quarkus.datasource.db-kind")
-    lateinit var database: String
+    lateinit var personService: PersonService
 
     fun populateDB()
     {
-        if (this.personDAO.count() == 0L)
+        if (this.personService.getPersonCount() == 0L)
         {
-            logger.info("Populating DB $dbUrl on database $database")
-            this.createPerson("Alessio", "Saltarin")
-            this.createPerson("Renzo", "Piano")
-            this.createPerson("Elena", "Zambrelli")
+            logger.info("Populating DB $dbUrl")
+            val alessioPhones = setOf(
+                PhoneDTO("348", "39290022"),
+                PhoneDTO("333", "32233232")
+            )
+            val renzoPhones = setOf(
+                PhoneDTO("348", "12809128")
+            )
+            val elenaPhones = setOf(
+                PhoneDTO("349", "23223323"),
+                PhoneDTO("334", "32332232")
+            )
+            this.personService.addPerson("Alessio", "Saltarin", 50, alessioPhones)
+            this.personService.addPerson("Renzo", "Piano", 99, renzoPhones)
+            this.personService.addPerson("Elena", "Zambrelli", 25, elenaPhones)
             logger.info("Done.")
         }
     }
 
-    @Transactional
-    fun createPerson(name: String, surname: String)
-    {
-        val age = Random.nextInt(1, 100)
-        val person = Person(name, surname, age)
-        this.personDAO.persist(person)
-    }
 }
