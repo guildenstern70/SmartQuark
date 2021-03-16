@@ -5,7 +5,7 @@
  * See LICENSE
  */
 
-package net.littlelite.smartquark.controller
+package net.littlelite.smartquark.controller.rest
 
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response
 @Consumes("application/json")
 @Path("/phone")
 @Tag(name = "Phone Controller", description = "Phone related APIs")
-class PhoneController
+class PhoneController : BaseRestController()
 {
     @Inject
     lateinit var personService: PersonService

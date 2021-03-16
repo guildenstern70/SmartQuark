@@ -1,5 +1,6 @@
 quarkus:
   log:
+    level: INFO
     console:
       enable: true
       format: "%d{HH:mm:ss} %-5p [%c{2.}] %s%e%n"
@@ -29,6 +30,6 @@ mp:
   openapi:
     scan:
       exclude:
-        classes: net.littlelite.smartquark.controller.WebController
+        classes: net.littlelite.smartquark.controller.web.WebController
 
 

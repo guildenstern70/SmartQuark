@@ -12,12 +12,25 @@ import net.littlelite.smartquark.model.Person
 
 @RegisterForReflection
 data class PersonDTO(
+        val id: Int,
         val name: String,
         val surname: String,
         val age: Int,
         val phones: Set<PhoneDTO>
 )
 {
+    /**
+     * Constructor for POST action
+     */
+    constructor(name: String,
+                surname: String,
+                age: Int,
+                phones: Set<PhoneDTO>): this(
+            -1,
+            name,
+            surname,
+            age,
+            phones)
 
     fun toPerson(): Person
     {
@@ -31,7 +44,7 @@ data class PersonDTO(
         fun fromPerson(person: Person): PersonDTO
         {
             val phonesDTO = person.getPhones().map { PhoneDTO.fromPhone(it) }.toSet()
-            return PersonDTO(person.name, person.surname, person.age, phonesDTO)
+            return PersonDTO(person.id, person.name, person.surname, person.age, phonesDTO)
         }
     }
 }

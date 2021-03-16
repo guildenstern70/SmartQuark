@@ -5,25 +5,27 @@
  * See LICENSE
  */
 
-package net.littlelite.smartquark.controller
+package net.littlelite.smartquark.controller.rest
 
 import net.littlelite.smartquark.dto.PersonDTO
-import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.dto.ResultDTO
+import net.littlelite.smartquark.dto.error.NotFoundDTO
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
-@Produces("application/json")
-@Consumes("application/json")
 @Path("/person")
 @Tag(name = "Person Controller", description = "Person related APIs")
-class PersonController
+class PersonController : BaseRestController()
 {
+    private val logger: Logger = LoggerFactory.getLogger(PersonService::class.java)
+
     @Inject
     lateinit var personService: PersonService
 
@@ -43,9 +45,8 @@ class PersonController
     @Operation(summary = "Get all persons")
     fun getOnePerson(@PathParam("id") id: Int): Response
     {
-        val person = this.personService.getPerson(id) ?:
-            return Response.status(404).build()
-
+        val person = this.personService.getPerson(id) ?: return this.notFound("Person")
+        logger.info("Person found")
         return Response.ok(person).build()
     }
 
@@ -57,9 +58,7 @@ class PersonController
                         @PathParam("ageMin") ageMin: Int): Response
     {
         val persons = this.personService.findByAge(ageMin, ageMax)
-        if (persons.isEmpty())
-            return Response.status(404).build()
-
+        if (persons.isEmpty()) return this.notFound("Persons")
         return Response.ok(persons).build()
     }
 

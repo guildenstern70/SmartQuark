@@ -40,8 +40,8 @@ class PersonService
     fun getAllPersons() : List<PersonDTO> =
         this.personDAO.listAll().map { PersonDTO.fromPerson(it) }
 
-    fun getAllPhones(): List<Phone> =
-        this.phoneDAO.listAll()
+    fun getAllPhones(): List<PhoneDTO> =
+        this.phoneDAO.listAll().map { PhoneDTO.fromPhone(it) }
 
     @Transactional
     fun addPerson(personDTO: PersonDTO): Person
@@ -64,9 +64,10 @@ class PersonService
         return this.personDAO.count()
     }
 
-    fun getPerson(id: Int): Person?
+    fun getPerson(id: Int): PersonDTO?
     {
-        return this.personDAO.findById(id)
+        val person = this.personDAO.findById(id) ?: return null
+        return PersonDTO.fromPerson(person)
     }
 
     @Transactional
@@ -75,9 +76,11 @@ class PersonService
         return this.personDAO.deleteById(personId)
     }
 
-    fun findByAge(ageMin: Int, ageMax: Int): List<Person>
+    fun findByAge(ageMin: Int, ageMax: Int): List<PersonDTO>
     {
-        return this.personDAO.findByAge(ageMin, ageMax)
+        return this.personDAO
+                .findByAge(ageMin, ageMax)
+                .map { PersonDTO.fromPerson(it) }
     }
 
 }

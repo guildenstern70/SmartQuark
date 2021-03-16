@@ -13,6 +13,7 @@ import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.service.PersonService
 import org.hamcrest.CoreMatchers.startsWith
 import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.Test
 import javax.inject.Inject
 
@@ -34,17 +35,17 @@ class PersonTest
         val createdPerson = this.personService.getPerson(savedPerson.id)
         assertThat(createdPerson).isNotNull
         assertThat(createdPerson!!.id).isEqualTo(savedPerson.id)
-        assertThat(createdPerson.getPhones().size).isEqualTo(2)
+        assertThat(createdPerson.phones.size).isEqualTo(2)
     }
 
     @Test
     fun testPersonEndpoint()
     {
         given()
-                .`when`().get("/person")
+                .`when`().get("/person/1")
                 .then()
                 .statusCode(200)
-                .body(startsWith("[{\"name\""))
+                .body("id", equalTo(1))
     }
 
 }

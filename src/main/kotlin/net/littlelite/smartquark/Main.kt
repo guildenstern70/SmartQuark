@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory
 open class Main : QuarkusApplication
 {
     private val logger: Logger = LoggerFactory.getLogger(Main::class.java)
-    private val version = "0.1.0"
+    private val version = "0.2.0"
 
     private fun hello()
     {

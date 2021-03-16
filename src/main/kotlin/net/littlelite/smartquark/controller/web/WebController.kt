@@ -5,7 +5,7 @@
  * See LICENSE
  */
 
-package net.littlelite.smartquark.controller
+package net.littlelite.smartquark.controller.web
 
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance
