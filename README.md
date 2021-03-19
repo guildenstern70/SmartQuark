@@ -11,7 +11,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ### Kotlin Version
 
-Note that the Kotlin runtime version must met the Quarkus-Kotlin plugin Kotlin version (now it's 1.3.72)
+Note that the Kotlin runtime version must met the Quarkus-Kotlin plugin Kotlin version (now it's 1.4.20)
 
     gradle dependencies | grep kotlin
 

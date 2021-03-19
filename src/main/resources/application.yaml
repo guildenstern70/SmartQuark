@@ -8,7 +8,6 @@ quarkus:
       color: true
   swagger-ui:
     always-include: true
-    path: "/swagger-ui"
     theme: "feeling-blue"
     title: "SmartQuark API | Swagger UI"
     urls-primary-name: "SmartQuark API"
