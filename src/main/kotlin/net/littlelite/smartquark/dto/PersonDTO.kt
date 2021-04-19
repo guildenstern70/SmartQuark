@@ -9,8 +9,10 @@ package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.smartquark.model.Person
+import javax.enterprise.context.SessionScoped
 
 @RegisterForReflection
+@SessionScoped
 data class PersonDTO(
         val id: Int,
         val name: String,

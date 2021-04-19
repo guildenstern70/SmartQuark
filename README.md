@@ -19,19 +19,16 @@ Note that the Kotlin runtime version must met the Quarkus-Kotlin plugin Kotlin v
 
 The application can be packaged using 
 
-    gradle quarkusBuild
+    gradle quarkusBuild -Dquarkus.package.type=uber-jar
 
-It produces the `smartquark-0.1.0-runner.jar` file in the `build` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/lib` directory.
-The application is now runnable using `java -jar build/smartquark-0.1.0-runner.jar`.
-If you want to build an _über-jar_, just add the `--uber-jar` option to the command line:
+It produces the `smartquark-[version]-runner.jar` file in the `build` directory. Run with
 
-    gradle quarkusBuild --uber-jar
+    java -jar smartquark-[version]-runner.jar
 
 ### Creating a native executable
 
 You can create a native executable using: `./build-native`.
-You can then execute your native executable with: `./build/smartquark-0.1.0-runner`
+You can then execute your native executable with: `./build/smartquark-[version]-runner`
 
 ### Creating a Docker native executable
 

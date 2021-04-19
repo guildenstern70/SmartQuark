@@ -18,10 +18,8 @@ repositories {
     mavenCentral()
 }
 
-group 'net.littlelite.smartquark'
-version '0.1.0'
-
 dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     implementation "io.quarkus:quarkus-agroal:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-qute:${quarkusPlatformVersion}"
@@ -35,12 +33,13 @@ dependencies {
     implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-smallrye-health:${quarkusPlatformVersion}"
-    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-
     testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
     testImplementation "org.assertj:assertj-core:3.6.1"
     testImplementation "io.rest-assured:kotlin-extensions"
 }
+
+group 'net.littlelite.smartquark'
+version '0.1.0'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11

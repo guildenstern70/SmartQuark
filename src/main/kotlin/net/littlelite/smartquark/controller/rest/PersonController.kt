@@ -9,7 +9,7 @@ package net.littlelite.smartquark.controller.rest
 
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
-import net.littlelite.smartquark.dto.error.NotFoundDTO
+import net.littlelite.smartquark.model.Person
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
@@ -19,6 +19,8 @@ import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
+import javax.ws.rs.core.UriBuilder
+
 
 @Path("/person")
 @Tag(name = "Person Controller", description = "Person related APIs")
@@ -67,8 +69,15 @@ class PersonController : BaseRestController()
     @Operation(summary = "Create a person")
     fun createPerson(personDTO: PersonDTO): Response
     {
-        val createdPerson = this.personService.addPerson(personDTO)
-        return Response.ok(createdPerson).build()
+        val createdPerson: Person = this.personService.addPerson(personDTO)
+        return Response.created(
+                UriBuilder
+                        .fromResource(Person::class.java)
+                        .path(createdPerson.id.toString())
+                        .build()
+                )
+                .entity(createdPerson)
+                .build()
     }
 
     @DELETE

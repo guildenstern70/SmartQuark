@@ -7,6 +7,11 @@
 
 package net.littlelite.smartquark.dto
 
+import io.quarkus.runtime.annotations.RegisterForReflection
+import javax.enterprise.context.SessionScoped
+
+@SessionScoped
+@RegisterForReflection
 data class ResultDTO(
     val operationResult: String,
     val message: String
