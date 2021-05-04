@@ -1,9 +1,9 @@
-# SmartQuark
+## SmartQuark
 
 [![Build Status](https://travis-ci.com/guildenstern70/SmartQuark.svg?branch=master)](https://travis-ci.com/guildenstern70/SmartQuark)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b6c1766de094783827f508e9aedf355)](https://www.codacy.com/gh/guildenstern70/SmartQuark/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guildenstern70/SmartQuark&amp;utm_campaign=Badge_Grade)
 
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+A template project featuring Quarkus in Java and Kotlin.
 
 ### Development mode
 
@@ -61,7 +61,3 @@ To run it:
     ./run-docker-native
 
 (the above script calls an environment file to pass needed environment variables)
-
-    
-    
-    
