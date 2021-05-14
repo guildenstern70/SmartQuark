@@ -14,11 +14,11 @@ quarkus:
   banner:
     path: banner.txt
   datasource:
-    db-kind: ${DB_KIND:mariadb}
-    username: ${DB_USERNAME:alessio}
-    password: ${DB_PASSWORD:qLKmatt07}
+    db-kind: ${DB_KIND:h2}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:admin}
     jdbc:
-      url: ${DB_URL:jdbc:mariadb://mariadbtestserver077.mariadb.database.azure.com:3306/smqrk?useSSL=true}
+      url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb}
   hibernate-orm:
     database:
       # other valid options are: none, create, create, drop, update
