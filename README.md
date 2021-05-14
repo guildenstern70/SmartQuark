@@ -26,9 +26,28 @@ It produces the `smartquark-[version]-runner.jar` file in the `build` directory.
 
     java -jar smartquark-[version]-runner.jar
 
+### Creating and running in a Java Container
+
+    gradle quarkusBuild
+    docker build -f src/main/docker/Dockerfile.jvm -t guildenstern70/smartquarkus .
+    docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" guildenstern70/smartquarkus
+
 ### Creating a native executable
 
-You can create a native executable using: `./build-native`.
+Native version *cannot work with embedded H2 database*. It is recommended to create an 
+external Postgres database and specify its coordinats as environment variables, as shown
+in 'run-native-example.sh' script. 
+
+First, download and install GRAALVM CE Java 11 v.21
+
+    export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.1.0/Contents/Home
+
+install native extensions
+
+    cd /Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.1.0/Contents/Home/bin
+    ./gu install native-image
+
+Now, you can create a native executable using: `./build-native`.
 You can then execute your native executable with: `./build/smartquark-[version]-runner`
 
 ### Creating a Docker native executable

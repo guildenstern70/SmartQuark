@@ -31,7 +31,7 @@ dependencies {
     implementation "io.quarkus:quarkus-config-yaml:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-jdbc-mariadb:${quarkusPlatformVersion}"
     implementation "io.quarkus:quarkus-smallrye-health:${quarkusPlatformVersion}"
     testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
     testImplementation "org.assertj:assertj-core:3.6.1"

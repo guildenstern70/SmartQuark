@@ -1,5 +1,5 @@
 # Hide DB password
-build-native.sh
+build-native-postgres.sh
 run-native.sh
 docker-env.txt
 build-docker-native.sh
