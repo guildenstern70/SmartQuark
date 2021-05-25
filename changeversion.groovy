@@ -7,11 +7,10 @@ def versionFiles = [
         'build.gradle'
 ]
 
-versionFiles.each {Files.replaceStringInFile(it, OLD_VERSION, NEW_VERSION)}
-versionFiles.each {Files.fileDelete(it + '.old')}
+versionFiles.each { Files.replaceStringInFile(it, OLD_VERSION, NEW_VERSION) }
+versionFiles.each { Files.fileDelete(it + '.old') }
 
-class Files
-{
+class Files {
     static boolean fileDelete(String filename) {
         return new File(filename).delete()
     }
