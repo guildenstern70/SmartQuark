@@ -10,8 +10,10 @@ package net.littlelite.smartquark.dto
 import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.smartquark.model.Person
 import javax.enterprise.context.SessionScoped
+import javax.ws.rs.Path
 
 @RegisterForReflection
+@Path("/person")
 @SessionScoped
 data class PersonDTO(
         val id: Int,
@@ -21,18 +23,16 @@ data class PersonDTO(
         val phones: Set<PhoneDTO>
 )
 {
+
     /**
-     * Constructor for POST action
+     * Empty Constructor for POST action
      */
-    constructor(name: String,
-                surname: String,
-                age: Int,
-                phones: Set<PhoneDTO>): this(
+    constructor(): this(
             -1,
-            name,
-            surname,
-            age,
-            phones)
+            "",
+            "",
+            -1,
+            setOf())
 
     fun toPerson(): Person
     {

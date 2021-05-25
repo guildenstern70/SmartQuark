@@ -44,17 +44,18 @@ class PersonService
         this.phoneDAO.listAll().map { PhoneDTO.fromPhone(it) }
 
     @Transactional
-    fun addPerson(personDTO: PersonDTO): Person
+    fun addPerson(personDTO: PersonDTO): PersonDTO
     {
         val person = personDTO.toPerson()
         this.personDAO.persist(person)
-        return person  // now with ID
+        return PersonDTO.fromPerson(person)
     }
 
     @Transactional
     fun addPerson(name: String, surname: String, age: Int, phones: Set<PhoneDTO>): Person
     {
-        val person = PersonDTO(name, surname, age, phones).toPerson()
+        val person = Person(name, surname, age)
+        phones.forEach { person.addPhone(it.toPhone()) }
         this.personDAO.persist(person)
         return person  // now with ID
     }

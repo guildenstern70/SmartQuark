@@ -8,6 +8,9 @@
 package net.littlelite.smartquark.controller.rest
 
 import net.littlelite.smartquark.dto.error.InternalErrorDTO
+import net.littlelite.smartquark.service.PersonService
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import javax.ws.rs.core.Response
 import javax.ws.rs.ext.ExceptionMapper
 import javax.ws.rs.ext.Provider
@@ -15,8 +18,12 @@ import javax.ws.rs.ext.Provider
 @Provider
 class RestExceptionMapper : ExceptionMapper<Throwable>
 {
+    private val logger: Logger = LoggerFactory.getLogger(RestExceptionMapper::class.java)
+
     override fun toResponse(exc: Throwable): Response
     {
+        logger.error(exc.localizedMessage)
+        exc.printStackTrace()
         val message = exc.message
         val errorResponse = InternalErrorDTO(
                 message,

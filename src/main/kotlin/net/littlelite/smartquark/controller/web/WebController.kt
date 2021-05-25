@@ -9,6 +9,7 @@ package net.littlelite.smartquark.controller.web
 
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance
+import net.littlelite.smartquark.Main
 import javax.enterprise.inject.Default
 import javax.inject.Inject
 import javax.ws.rs.GET
@@ -27,7 +28,7 @@ class WebController
     @Produces(MediaType.TEXT_HTML)
     fun homePage(): TemplateInstance
     {
-        return this.index.data("version", "0.0.1");
+        return this.index.data("version", Main.VERSION);
     }
 
 }

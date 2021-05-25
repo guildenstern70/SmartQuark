@@ -65,14 +65,16 @@ class PersonController : BaseRestController()
     }
 
     @POST
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Create a person")
     fun createPerson(personDTO: PersonDTO): Response
     {
-        val createdPerson: Person = this.personService.addPerson(personDTO)
+        val createdPerson = this.personService.addPerson(personDTO)
         return Response.created(
                 UriBuilder
-                        .fromResource(Person::class.java)
+                        .fromResource(PersonDTO::class.java)
                         .path(createdPerson.id.toString())
                         .build()
                 )

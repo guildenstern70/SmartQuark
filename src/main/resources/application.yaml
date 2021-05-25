@@ -1,3 +1,5 @@
+smartquark:
+  version: 0.3.1
 quarkus:
   log:
     level: INFO

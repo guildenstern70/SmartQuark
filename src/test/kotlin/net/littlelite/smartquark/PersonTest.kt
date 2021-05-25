@@ -8,22 +8,22 @@
 package net.littlelite.smartquark
 
 import io.quarkus.test.junit.QuarkusTest
-import io.restassured.RestAssured.given
 import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.service.PersonService
-import org.hamcrest.CoreMatchers.startsWith
 import org.assertj.core.api.Assertions.assertThat
-import org.hamcrest.CoreMatchers.equalTo
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import javax.inject.Inject
 
 @QuarkusTest
+@DisplayName("Person logic")
 class PersonTest
 {
     @Inject
     lateinit var personService: PersonService
 
     @Test
+    @DisplayName("should create person with phones")
     fun createPersonWithPhones()
     {
         val alessioPhones = setOf(
@@ -36,16 +36,6 @@ class PersonTest
         assertThat(createdPerson).isNotNull
         assertThat(createdPerson!!.id).isEqualTo(savedPerson.id)
         assertThat(createdPerson.phones.size).isEqualTo(2)
-    }
-
-    @Test
-    fun testPersonEndpoint()
-    {
-        given()
-                .`when`().get("/person/1")
-                .then()
-                .statusCode(200)
-                .body("id", equalTo(1))
     }
 
 }
