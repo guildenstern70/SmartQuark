@@ -1,0 +1,13 @@
+---
+applications:
+  - name: smartquark-dev
+    routes:
+      - route: smartquark-dev.eu-de.mybluemix.net
+    buildpacks:
+      - https://github.com/cloudfoundry/java-buildpack.git
+    path: build/libs/smartquark-0.3.1.jar
+    memory: 1024M
+    instances: 1
+    timeout: 120
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version:  14.+ } }'
