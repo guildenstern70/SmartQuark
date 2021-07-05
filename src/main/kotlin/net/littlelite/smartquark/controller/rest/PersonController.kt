@@ -9,7 +9,6 @@ package net.littlelite.smartquark.controller.rest
 
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
-import net.littlelite.smartquark.model.Person
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
 import org.eclipse.microprofile.openapi.annotations.tags.Tag

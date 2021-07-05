@@ -8,7 +8,6 @@
 package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
-import net.littlelite.smartquark.model.Person
 import net.littlelite.smartquark.model.Phone
 import javax.enterprise.context.SessionScoped
 
