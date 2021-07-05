@@ -14,7 +14,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-private const val APP_VERSION = "0.3.1"
+private const val APP_VERSION = "0.3.2"
 
 @QuarkusMain
 open class Main : QuarkusApplication

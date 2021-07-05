@@ -1,5 +1,5 @@
-OLD_VERSION = '0.3.0'
-NEW_VERSION = '0.3.1'
+OLD_VERSION = '0.3.1'
+NEW_VERSION = '0.3.2'
 
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',

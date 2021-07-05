@@ -7,18 +7,12 @@
 
 package net.littlelite.smartquark.service
 
-import net.littlelite.smartquark.dao.PersonDAO
 import net.littlelite.smartquark.dto.PhoneDTO
-import net.littlelite.smartquark.model.Person
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Default
 import javax.inject.Inject
-import javax.persistence.EntityManager
-import javax.transaction.Transactional
-import kotlin.random.Random
 
 @ApplicationScoped
 class DBInitializer(
