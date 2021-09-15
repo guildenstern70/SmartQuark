@@ -10,6 +10,7 @@ package net.littlelite.smartquark.controller.web
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance
 import net.littlelite.smartquark.Main
+import net.littlelite.smartquark.config.SmartQuark
 import javax.enterprise.inject.Default
 import javax.inject.Inject
 import javax.ws.rs.GET
@@ -24,11 +25,14 @@ class WebController
     @field: Default
     lateinit var index: Template
 
+    @Inject
+    lateinit var smartquark: SmartQuark
+
     @GET
     @Produces(MediaType.TEXT_HTML)
     fun homePage(): TemplateInstance
     {
-        return this.index.data("version", Main.VERSION);
+        return this.index.data("version", smartquark.version());
     }
 
 }

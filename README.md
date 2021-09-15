@@ -4,7 +4,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b6c1766de094783827f508e9aedf355)](https://www.codacy.com/gh/guildenstern70/SmartQuark/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guildenstern70/SmartQuark&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A template project featuring Quarkus in Java and Kotlin.
+A template project featuring Quarkus written in Kotlin.
 
 ### Development mode
 

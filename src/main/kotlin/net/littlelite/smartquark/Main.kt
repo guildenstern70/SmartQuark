@@ -13,8 +13,6 @@ import io.quarkus.runtime.annotations.QuarkusMain
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-private const val APP_VERSION = "0.3.2"
-
 @QuarkusMain
 open class Main : QuarkusApplication
 {
@@ -22,14 +20,10 @@ open class Main : QuarkusApplication
 
     override fun run(vararg args: String?): Int
     {
+        logger.info("Running Quarkus")
         Quarkus.waitForExit()
         return 0
     }
 
-    companion object
-    {
-        @JvmField
-        var VERSION = APP_VERSION
-    }
 }
 
