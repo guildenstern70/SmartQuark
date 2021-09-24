@@ -1,3 +1,10 @@
+/*
+ * The SmartQuark Project
+ * Copyright (c) Alessio Saltarin, 2021.
+ * This software is licensed under MIT License
+ * See LICENSE
+ */
+
 OLD_VERSION = '0.3.1'
 NEW_VERSION = '0.3.2'
 
