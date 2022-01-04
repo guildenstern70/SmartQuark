@@ -1,34 +1,37 @@
 smartquark:
-  version: 0.3.3
+  version: 0.4.1
 quarkus:
-  log:
-    level: INFO
-    console:
-      enable: true
-      format: "%d{HH:mm:ss} %-5p [%c{2.}] %s%e%n"
-      level: DEBUG
-      color: true
-  swagger-ui:
-    always-include: true
-    theme: "feeling-blue"
-    title: "SmartQuark API | Swagger UI"
-    urls-primary-name: "SmartQuark API"
   banner:
     path: banner.txt
+  console:
+    color: true
   datasource:
     db-kind: ${DB_KIND:h2}
     username: ${DB_USERNAME:admin}
     password: ${DB_PASSWORD:admin}
     jdbc:
       url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb}
+      max-size: 16
   hibernate-orm:
     database:
       # other valid options are: none, create, create, drop, update
       generation: drop-and-create
+  log:
+    level: INFO
+    console:
+      enable: true
+      format: "%d{HH:mm:ss} %-5p [%c{2.}] %s%e%n"
+      level: DEBUG
   native:
     native-image-xmx: 4g
+  swagger-ui:
+    always-include: true
+    theme: "feeling-blue"
+    title: "SmartQuark API | Swagger UI"
+    urls-primary-name: "SmartQuark API"
   test:
     flat-class-path: true
+  profile: default
 mp:
   openapi:
     extensions:

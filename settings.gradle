@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021.
+ * Copyright (c) Alessio Saltarin, 2021-22
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -12,7 +12,7 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        id 'io.quarkus' version "${quarkusPluginVersion}"
+        id "${quarkusPluginId}" version "${quarkusPluginVersion}"
     }
 }
 rootProject.name = 'smartquark'

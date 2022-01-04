@@ -1,12 +1,13 @@
+#!/usr/bin/env groovy
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021.
+ * Copyright (c) Alessio Saltarin, 2021-22
  * This software is licensed under MIT License
  * See LICENSE
  */
 
-OLD_VERSION = '0.3.1'
-NEW_VERSION = '0.3.2'
+OLD_VERSION = '0.4.0'
+NEW_VERSION = '0.4.1'
 
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',
@@ -14,8 +15,13 @@ def versionFiles = [
         'build.gradle'
 ]
 
-versionFiles.each { Files.replaceStringInFile(it, OLD_VERSION, NEW_VERSION) }
+println "Replacing version " + OLD_VERSION + " with version " + NEW_VERSION + "..."
+versionFiles.each {
+    println "-  Processing file " + it
+    Files.replaceStringInFile(it, OLD_VERSION, NEW_VERSION)
+}
 versionFiles.each { Files.fileDelete(it + '.old') }
+println "All done."
 
 class Files {
     static boolean fileDelete(String filename) {

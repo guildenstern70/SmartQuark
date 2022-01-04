@@ -2,7 +2,7 @@
 
 #
 # The SmartQuark Project
-# Copyright (c) Alessio Saltarin, 2021.
+# Copyright (c) Alessio Saltarin, 2021-22
 # This software is licensed under MIT License
 # See LICENSE
 #

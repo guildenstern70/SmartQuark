@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021.
+ * Copyright (c) Alessio Saltarin, 2021-22
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -24,6 +24,5 @@ open class Main : QuarkusApplication
         Quarkus.waitForExit()
         return 0
     }
-
 }
 
