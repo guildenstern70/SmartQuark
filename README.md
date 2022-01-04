@@ -12,7 +12,7 @@ A template project featuring Quarkus written in Kotlin.
 
 ### Kotlin Version
 
-Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.4.32)
+Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.6.10)
 
     gradle dependencies | grep kotlin
 
@@ -38,23 +38,33 @@ Native version *cannot work with embedded H2 database*. It is recommended to cre
 external Postgres database and specify its coordinats as environment variables, as shown
 in 'run-native-example.sh' script. 
 
-First, download and install GRAALVM CE Java 11 v.21
+First, download and install GraalVM CE Java 11 v.21.3 - the PostegreSQL JDBC driver at the moment
+is not working with GraalVM CE Java 17 edition, you need the Java 11 edition.
 
-    export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.1.0/Contents/Home
+    export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.3.0/Contents/Home
 
 install native extensions
 
-    cd /Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.1.0/Contents/Home/bin
+    cd /Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.3.0/Contents/Home/bin
     ./gu install native-image
 
 Now, you can create a native executable using: `./build-native`.
-You can then execute your native executable with: `./build/smartquark-[version]-runner`
+You can then execute your native executable with `run-native.sh` script.
 
-### Creating a Docker native executable
+### Creating a container 
+
+Build Docker image using
+
+    docker build -f src/main/docker/Dockerfile.jvm -t guildenstern70/smart-quark .
+
+You can test it with
+
+    docker run -i --rm -p 8080:8080 guildenstern70/smart-quark
+
+### Creating a container with native executable
 
 Unless you are using the same Linux OS of the target deployment machine, if you need to
-deploy in Docker, you need also to "build" in Docker. Doing so, it requires a lot of resources
-to give to your Docker environment.
+deploy in Docker, you need also to "build" in Docker. Doing so, Docker requires a lot of resources.
 
 Be sure to have Docker with at least 8 GB and 6 CPUs.
 
@@ -64,9 +74,10 @@ Also, you may adjust the XMX JVM value in
 
 property (application.yaml). This value should never be < 4g.
 
-Prepare a Linux runnable exec and store in /build/smartquark-010-runner with this command:
+Prepare a Linux runnable exec and store in /build/smartquark-[version]-runner running a command
+like:
 
-    gradle build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
+    ./build-docker-native-example.sh
 
 This command prepares also a specific Dockerfile inside 
 

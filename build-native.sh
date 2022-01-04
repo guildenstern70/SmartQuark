@@ -7,6 +7,7 @@
 #
 
 # JVM Variables
-export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java17-21.3.0/Contents/Home
+export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.3.0/Contents/Home
 export JAVA_HOME=${GRAALVM_HOME}
+./gradlew clean
 ./gradlew build -Dquarkus.package.type=native
