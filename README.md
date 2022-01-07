@@ -1,6 +1,6 @@
 ## SmartQuark
 
-[![Build Status](https://travis-ci.com/guildenstern70/SmartQuark.svg?branch=master)](https://travis-ci.com/guildenstern70/SmartQuark)
+![GitHub Actions](https://github.com/guildenstern70/SmartQuark/actions/workflows/gradle.yml/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b6c1766de094783827f508e9aedf355)](https://www.codacy.com/gh/guildenstern70/SmartQuark/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guildenstern70/SmartQuark&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
