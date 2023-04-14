@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-22
+ * Copyright (c) Alessio Saltarin, 2021-23
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -13,7 +13,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-
 
 @QuarkusTest
 @DisplayName("Person API")

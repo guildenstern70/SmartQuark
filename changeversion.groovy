@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-22
+ * Copyright (c) Alessio Saltarin, 2021-23
  * This software is licensed under MIT License
  * See LICENSE
  */

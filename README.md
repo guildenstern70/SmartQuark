@@ -12,7 +12,7 @@ A template project featuring Quarkus written in Kotlin.
 
 ### Kotlin Version
 
-Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.6.10)
+Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.7.22)
 
     gradle dependencies | grep kotlin
 
@@ -55,7 +55,7 @@ You can then execute your native executable with `run-native.sh` script.
 
 Build Docker image using
 
-    docker build -f src/main/docker/Dockerfile.jvm -t guildenstern70/smart-quark .
+    docker build --platform linux/amd64 -f src/main/docker/Dockerfile.jvm -t guildenstern70/smart-quark .
 
 You can test it with
 

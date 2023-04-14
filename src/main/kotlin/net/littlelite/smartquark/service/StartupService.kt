@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-22
+ * Copyright (c) Alessio Saltarin, 2021-23
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -8,8 +8,6 @@
 package net.littlelite.smartquark.service;
 
 import io.quarkus.runtime.StartupEvent
-import io.quarkus.runtime.configuration.ProfileManager
-import net.littlelite.smartquark.Main
 import net.littlelite.smartquark.config.SmartQuark
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -43,7 +41,6 @@ class StartupService
     fun onStart(@Observes ev: StartupEvent?)
     {
         logger.info("Starting up application")
-        logger.info("The application is starting with profile " + ProfileManager.getActiveProfile());
         this.dbInitializer.populateDB()
         this.hello()
     }

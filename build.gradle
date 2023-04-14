@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-22
+ * Copyright (c) Alessio Saltarin, 2021-23
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -8,9 +8,9 @@
 plugins {
     id 'java'
     id 'io.quarkus'
-    id "org.jetbrains.kotlin.jvm" version "1.6.10"
-    id "org.jetbrains.kotlin.plugin.allopen" version "1.6.10"
-    id "org.jetbrains.kotlin.plugin.noarg" version "1.6.10"
+    id "org.jetbrains.kotlin.jvm" version "1.7.22"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.7.22"
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.7.22"
 }
 
 repositories {
@@ -21,19 +21,20 @@ repositories {
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
-    implementation "io.quarkus:quarkus-agroal:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-qute:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-resteasy:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-resteasy-jackson:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-resteasy-qute:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-kotlin:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-smallrye-openapi:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-config-yaml:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-jdbc-h2:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-jdbc-postgresql:${quarkusPlatformVersion}"
-    implementation "io.quarkus:quarkus-smallrye-health:${quarkusPlatformVersion}"
-    testImplementation "io.quarkus:quarkus-junit5:${quarkusPlatformVersion}"
+    implementation "io.quarkus:quarkus-agroal"
+    implementation "io.quarkus:quarkus-arc"
+    implementation "io.quarkus:quarkus-config-yaml"
+    implementation "io.quarkus:quarkus-hibernate-orm-panache-kotlin"
+    implementation "io.quarkus:quarkus-jdbc-h2"
+    implementation "io.quarkus:quarkus-jdbc-postgresql"
+    implementation "io.quarkus:quarkus-kotlin"
+    implementation "io.quarkus:quarkus-qute"
+    implementation "io.quarkus:quarkus-resteasy"
+    implementation "io.quarkus:quarkus-resteasy-jackson"
+    implementation "io.quarkus:quarkus-resteasy-qute"
+    implementation "io.quarkus:quarkus-smallrye-health"
+    implementation "io.quarkus:quarkus-smallrye-openapi"
+    testImplementation "io.quarkus:quarkus-junit5"
     testImplementation 'org.assertj:assertj-core:3.21.0'
     testImplementation "io.rest-assured:kotlin-extensions"
 }
@@ -62,14 +63,6 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11
-}
-
-quarkus {
-    setOutputDirectory("$projectDir/build/classes/kotlin/main")
-}
-
-quarkusDev {
-    setSourceDir("$projectDir/src/main/kotlin")
 }
 
 allOpen {
