@@ -11,10 +11,12 @@ import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.smartquark.model.Person
 import javax.enterprise.context.SessionScoped
 import javax.ws.rs.Path
+import kotlinx.serialization.Serializable
 
 @RegisterForReflection
 @Path("/person")
 @SessionScoped
+@Serializable
 data class PersonDTO(
         val id: Int,
         val name: String,

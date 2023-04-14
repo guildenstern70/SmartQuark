@@ -8,11 +8,13 @@
 package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
+import kotlinx.serialization.Serializable
 import net.littlelite.smartquark.model.Phone
 import javax.enterprise.context.SessionScoped
 
 @RegisterForReflection
 @SessionScoped
+@Serializable
 data class PhoneDTO(
     val prefix: String,
     val number: String
