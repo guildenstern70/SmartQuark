@@ -13,7 +13,7 @@ import net.littlelite.smartquark.service.PersonService
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 @QuarkusTest
 @DisplayName("Person logic")

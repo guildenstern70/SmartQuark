@@ -7,6 +7,11 @@
 
 package net.littlelite.smartquark.controller.rest
 
+import jakarta.inject.Inject
+import jakarta.ws.rs.*
+import jakarta.ws.rs.core.MediaType
+import jakarta.ws.rs.core.Response
+import jakarta.ws.rs.core.UriBuilder
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
 import net.littlelite.smartquark.service.PersonService
@@ -14,11 +19,6 @@ import org.eclipse.microprofile.openapi.annotations.Operation
 import org.eclipse.microprofile.openapi.annotations.tags.Tag
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import javax.inject.Inject
-import javax.ws.rs.*
-import javax.ws.rs.core.MediaType
-import javax.ws.rs.core.Response
-import javax.ws.rs.core.UriBuilder
 
 
 @Path("/person")
@@ -31,7 +31,6 @@ class PersonController : BaseRestController()
     lateinit var personService: PersonService
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get all persons")
     fun allPersons(): Response
     {
@@ -42,7 +41,6 @@ class PersonController : BaseRestController()
 
     @GET
     @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get all persons")
     fun getOnePerson(@PathParam("id") id: Int): Response
     {
@@ -53,7 +51,6 @@ class PersonController : BaseRestController()
 
     @GET
     @Path("ageMax/{ageMax}/ageMin/{ageMin}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get persons in age range")
     fun getPersonsByAge(@PathParam("ageMax") ageMax: Int,
                         @PathParam("ageMin") ageMin: Int): Response
@@ -65,7 +62,6 @@ class PersonController : BaseRestController()
 
     @POST
     @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Create a person")
     fun createPerson(personDTO: PersonDTO): Response

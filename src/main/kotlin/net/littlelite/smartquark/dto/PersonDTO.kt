@@ -9,8 +9,8 @@ package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.smartquark.model.Person
-import javax.enterprise.context.SessionScoped
-import javax.ws.rs.Path
+import jakarta.enterprise.context.SessionScoped
+import jakarta.ws.rs.Path
 import kotlinx.serialization.Serializable
 
 @RegisterForReflection

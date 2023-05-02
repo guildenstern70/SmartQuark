@@ -9,7 +9,7 @@ package net.littlelite.smartquark.dto
 
 import io.quarkus.runtime.annotations.RegisterForReflection
 import kotlinx.serialization.Serializable
-import javax.enterprise.context.SessionScoped
+import jakarta.enterprise.context.SessionScoped
 
 @SessionScoped
 @RegisterForReflection

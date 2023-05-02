@@ -12,7 +12,7 @@ A template project featuring Quarkus written in Kotlin.
 
 ### Kotlin Version
 
-Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.7.22)
+Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.8.10)
 
     gradle dependencies | grep kotlin
 

@@ -14,11 +14,11 @@ import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.model.Person
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Default
-import javax.inject.Inject
-import javax.persistence.EntityManager
-import javax.transaction.Transactional
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.enterprise.inject.Default
+import jakarta.inject.Inject
+import jakarta.persistence.EntityManager
+import jakarta.transaction.Transactional
 
 
 @ApplicationScoped

@@ -9,7 +9,7 @@ package net.littlelite.smartquark.dao
 
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheRepositoryBase
 import net.littlelite.smartquark.model.Phone
-import javax.enterprise.context.ApplicationScoped
+import jakarta.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 class PhoneDAO : PanacheRepositoryBase<Phone, Int>

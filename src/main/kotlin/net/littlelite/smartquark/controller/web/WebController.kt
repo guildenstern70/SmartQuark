@@ -9,14 +9,13 @@ package net.littlelite.smartquark.controller.web
 
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance
-import net.littlelite.smartquark.Main
 import net.littlelite.smartquark.config.SmartQuark
-import javax.enterprise.inject.Default
-import javax.inject.Inject
-import javax.ws.rs.GET
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
-import javax.ws.rs.core.MediaType
+import jakarta.enterprise.inject.Default
+import jakarta.inject.Inject
+import jakarta.ws.rs.GET
+import jakarta.ws.rs.Path
+import jakarta.ws.rs.Produces
+import jakarta.ws.rs.core.MediaType
 
 @Path("/")
 class WebController

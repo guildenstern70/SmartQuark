@@ -10,7 +10,7 @@ package net.littlelite.smartquark.dto
 import io.quarkus.runtime.annotations.RegisterForReflection
 import kotlinx.serialization.Serializable
 import net.littlelite.smartquark.model.Phone
-import javax.enterprise.context.SessionScoped
+import jakarta.enterprise.context.SessionScoped
 
 @RegisterForReflection
 @SessionScoped
