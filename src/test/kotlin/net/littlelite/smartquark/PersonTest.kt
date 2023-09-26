@@ -8,12 +8,14 @@
 package net.littlelite.smartquark
 
 import io.quarkus.test.junit.QuarkusTest
+import io.restassured.RestAssured
 import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.service.PersonService
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import jakarta.inject.Inject
+import org.hamcrest.CoreMatchers
 
 @QuarkusTest
 @DisplayName("Person logic")
@@ -21,6 +23,15 @@ class PersonTest
 {
     @Inject
     lateinit var personService: PersonService
+
+    @Test
+    fun testAlive() {
+        RestAssured.given()
+            .`when`().get("/alive")
+            .then()
+            .statusCode(200)
+            .body(CoreMatchers.`is`("{ \"alive\": true }"))
+    }
 
     @Test
     @DisplayName("should create person with phones")

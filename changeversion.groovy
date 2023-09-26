@@ -12,7 +12,7 @@ NEW_VERSION = '0.5.0'
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',
         './src/main/resources/application.yaml',
-        'build.gradle'
+        'build.gradle.old'
 ]
 
 println "Replacing version " + OLD_VERSION + " with version " + NEW_VERSION + "..."

@@ -1,5 +1,5 @@
 smartquark:
-  version: 0.5.0
+  version: 0.6.0
 quarkus:
   banner:
     path: banner.txt
@@ -29,8 +29,6 @@ quarkus:
     theme: "feeling-blue"
     title: "SmartQuark API | Swagger UI"
     urls-primary-name: "SmartQuark API"
-  test:
-    flat-class-path: true
   profile: default
 mp:
   openapi:

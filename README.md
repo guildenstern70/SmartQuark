@@ -10,9 +10,11 @@ A template project featuring Quarkus written in Kotlin.
 
     gradle quarkusDev
 
+Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/
+
 ### Kotlin Version
 
-Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version (currently it's 1.8.10)
+Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version
 
     gradle dependencies | grep kotlin
 
