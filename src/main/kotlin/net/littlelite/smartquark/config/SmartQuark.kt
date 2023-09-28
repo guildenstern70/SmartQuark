@@ -8,9 +8,11 @@
 package net.littlelite.smartquark.config
 
 import io.smallrye.config.ConfigMapping
+import io.smallrye.config.WithDefault
 
 @ConfigMapping(prefix = "smartquark")
 interface SmartQuark
 {
+    @WithDefault("0.6.0")
     fun version(): String?
 }

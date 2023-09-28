@@ -10,5 +10,5 @@ export DB_KIND=postgresql
 export DB_URL=jdbc:postgresql://[your_url]
 export DB_USERNAME=[your_user]
 export DB_PASSWORD=[your_pwd]
-./build/SmartQuark-0.4.1-runner
+./build/SmartQuark-0.6.0-runner
 

@@ -24,6 +24,9 @@ quarkus:
       level: DEBUG
   native:
     native-image-xmx: 4g
+    resources:
+      includes:
+        - "resources/*.yaml"
   swagger-ui:
     always-include: true
     theme: "feeling-blue"
