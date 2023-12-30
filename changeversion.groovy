@@ -6,13 +6,14 @@
  * See LICENSE
  */
 
-OLD_VERSION = '0.4.1'
-NEW_VERSION = '0.5.0'
+OLD_VERSION = '0.6.0'
+NEW_VERSION = '0.7.0'
 
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',
         './src/main/resources/application.yaml',
-        'build.gradle.old'
+        './src/main/kotlin/net/littlelite/smartquark/config/SmartQuark.kt',
+        'build.gradle.kts'
 ]
 
 println "Replacing version " + OLD_VERSION + " with version " + NEW_VERSION + "..."

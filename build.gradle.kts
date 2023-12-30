@@ -6,9 +6,9 @@
  */
 
 plugins {
-    kotlin("jvm") version "1.9.10"
-    kotlin("plugin.allopen") version "1.9.10"
-    kotlin("plugin.noarg") version "1.9.10"
+    kotlin("jvm") version "1.9.21"
+    kotlin("plugin.allopen") version "1.9.21"
+    kotlin("plugin.noarg") version "1.9.21"
     id("io.quarkus")
 }
 
@@ -25,7 +25,7 @@ val kotlinVersion: String by project
 dependencies {
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
     implementation("io.quarkus:quarkus-agroal")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-config-yaml")
@@ -46,15 +46,14 @@ dependencies {
 }
 
 group = "net.littlelite.smartquark"
-version = "0.6.0"
+version = "0.7.0"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.withType<Test> {
-    exclude("**/Native*")
     systemProperty("java.util.logging.manager", "org.jboss.logmanager.LogManager")
 }
 
@@ -70,6 +69,6 @@ noArg {
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
     kotlinOptions.javaParameters = true
 }

@@ -13,6 +13,6 @@ import io.smallrye.config.WithDefault
 @ConfigMapping(prefix = "smartquark")
 interface SmartQuark
 {
-    @WithDefault("0.6.0")
+    @WithDefault("0.7.0")
     fun version(): String?
 }
