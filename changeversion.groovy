@@ -1,13 +1,13 @@
 #!/usr/bin/env groovy
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-23
+ * Copyright (c) Alessio Saltarin, 2021-24
  * This software is licensed under MIT License
  * See LICENSE
  */
 
-OLD_VERSION = '0.6.0'
-NEW_VERSION = '0.7.0'
+OLD_VERSION = '0.7.0'
+NEW_VERSION = '0.8.0'
 
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',

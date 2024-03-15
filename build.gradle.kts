@@ -1,14 +1,14 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-23
+ * Copyright (c) Alessio Saltarin, 2021-24
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 plugins {
-    kotlin("jvm") version "1.9.21"
-    kotlin("plugin.allopen") version "1.9.21"
-    kotlin("plugin.noarg") version "1.9.21"
+    kotlin("jvm") version "1.9.23"
+    kotlin("plugin.allopen") version "1.9.23"
+    kotlin("plugin.noarg") version "1.9.23"
     id("io.quarkus")
 }
 
@@ -39,6 +39,7 @@ dependencies {
     implementation("io.quarkus:quarkus-resteasy-qute")
     implementation("io.quarkus:quarkus-smallrye-health")
     implementation("io.quarkus:quarkus-smallrye-openapi")
+    implementation("io.quarkus:quarkus-smallrye-graphql")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation("io.rest-assured:rest-assured")
@@ -46,7 +47,7 @@ dependencies {
 }
 
 group = "net.littlelite.smartquark"
-version = "0.7.0"
+version = "0.8.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21

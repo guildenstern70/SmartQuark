@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-23
+ * Copyright (c) Alessio Saltarin, 2021-24
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -13,6 +13,6 @@ import io.smallrye.config.WithDefault
 @ConfigMapping(prefix = "smartquark")
 interface SmartQuark
 {
-    @WithDefault("0.7.0")
+    @WithDefault("0.8.0")
     fun version(): String?
 }

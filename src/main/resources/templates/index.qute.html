@@ -1,7 +1,8 @@
 {@java.lang.String version}
+{@java.lang.String profile}
 <!--
   ~ The SmartQuark Project
-  ~ Copyright (c) Alessio Saltarin, 2021-23
+  ~ Copyright (c) Alessio Saltarin, 2021-24
   ~ This software is licensed under MIT License
   ~ See LICENSE
   -->
@@ -51,11 +52,20 @@
                         <div>
                             <small class="text-secondary">SmartQuark v.<span id="version">{version}</span></small>
                         </div>
-                        <div class="mt-4 btn-group" role="group" aria-label="Commands">
-                            <a class="btn btn-primary" href="/q/swagger-ui">APIs</a>
-                            <a class="btn btn-secondary" href="/q/dev">Dev</a>
-                            <a class="btn btn-info" href="/q/health-ui">Health</a>
-                        </div>
+                        {#if profile is 'dev'}
+                            <div class="mt-4 btn-group" role="group" aria-label="Commands">
+                                <a class="btn btn-primary" href="/q/swagger-ui">APIs</a>
+                                <a class="btn btn-secondary" href="/q/dev">Dev</a>
+                                <a class="btn btn-success" href="/q/graphql-ui">GraphQL</a>
+                                <a class="btn btn-info" href="/q/health-ui">Health</a>
+                            </div>
+                        {#else}
+                            <div class="mt-2">
+                                <a class="btn btn-primary" href="/q/swagger-ui">APIs</a>
+                                <a class="btn btn-success" href="/q/graphql-ui">GraphQL</a>
+                                <a class="btn btn-info" href="/q/health-ui">Health</a>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </div>

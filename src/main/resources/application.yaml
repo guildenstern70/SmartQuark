@@ -1,5 +1,5 @@
 smartquark:
-  version: 0.7.0
+  version: 0.8.0
 quarkus:
   banner:
     path: banner.txt
@@ -33,6 +33,12 @@ quarkus:
     title: "SmartQuark API | Swagger UI"
     urls-primary-name: "SmartQuark API"
   profile: default
+  smallrye-health:
+    ui:
+      always-include: true
+  smallrye-graphql:
+    ui:
+      always-include: true
 mp:
   openapi:
     extensions:
