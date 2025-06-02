@@ -1,21 +1,19 @@
 smartquark:
-  version: 0.8.0
+  name: SmartQuark
+  version: 0.9.0
 quarkus:
+  application:
+    name: ${smartquark.name}
+    version: ${smartquark.version}
   banner:
     path: banner.txt
   console:
     color: true
   datasource:
-    db-kind: ${DB_KIND:h2}
-    username: ${DB_USERNAME:admin}
-    password: ${DB_PASSWORD:admin}
-    jdbc:
-      url: ${DB_URL:jdbc:h2:file:./data/smartquarkdb}
-      max-size: 16
+    db-kind: postgresql
   hibernate-orm:
-    database:
-      # other valid options are: none, create, create, drop, update
-      generation: drop-and-create
+    jdbc:
+      statement-batch-size: 20
   log:
     level: INFO
     console:

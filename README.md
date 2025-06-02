@@ -10,7 +10,9 @@ A template project featuring Quarkus written in Kotlin.
 
     gradle quarkusDev
 
-Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/
+This project makes use of Quarkus Dev Services, which allows you to run a PostgreSQL database in a container.
+In order to run project and the database, you need to have Docker installed and running.
+There is also a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/
 
 ### Kotlin Version
 
