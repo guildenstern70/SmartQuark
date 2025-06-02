@@ -1,12 +1,17 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 package net.littlelite.smartquark.service
 
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.enterprise.inject.Default
+import jakarta.inject.Inject
+import jakarta.persistence.EntityManager
+import jakarta.transaction.Transactional
 import net.littlelite.smartquark.dao.PersonDAO
 import net.littlelite.smartquark.dao.PhoneDAO
 import net.littlelite.smartquark.dto.PersonDTO
@@ -14,11 +19,6 @@ import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.model.Person
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import jakarta.enterprise.context.ApplicationScoped
-import jakarta.enterprise.inject.Default
-import jakarta.inject.Inject
-import jakarta.persistence.EntityManager
-import jakarta.transaction.Transactional
 
 
 @ApplicationScoped

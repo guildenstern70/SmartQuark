@@ -1,18 +1,18 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 package net.littlelite.smartquark.controller.rest
 
-import net.littlelite.smartquark.dto.error.InternalErrorDTO
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import jakarta.ws.rs.core.Response
 import jakarta.ws.rs.ext.ExceptionMapper
 import jakarta.ws.rs.ext.Provider
+import net.littlelite.smartquark.dto.error.InternalErrorDTO
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 @Provider
 class RestExceptionMapper : ExceptionMapper<Throwable>

@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -9,13 +9,13 @@ package net.littlelite.smartquark
 
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured
+import jakarta.inject.Inject
 import net.littlelite.smartquark.dto.PhoneDTO
 import net.littlelite.smartquark.service.PersonService
 import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.CoreMatchers
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import jakarta.inject.Inject
-import org.hamcrest.CoreMatchers
 
 @QuarkusTest
 @DisplayName("Person logic")

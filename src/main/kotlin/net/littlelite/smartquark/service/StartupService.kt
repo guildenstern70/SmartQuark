@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -8,13 +8,13 @@
 package net.littlelite.smartquark.service;
 
 import io.quarkus.runtime.StartupEvent
-import net.littlelite.smartquark.config.SmartQuark
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.event.Observes
 import jakarta.enterprise.inject.Default
 import jakarta.inject.Inject
+import net.littlelite.smartquark.config.SmartQuark
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 
 @ApplicationScoped

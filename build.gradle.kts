@@ -1,14 +1,14 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.allopen") version "1.9.23"
-    kotlin("plugin.noarg") version "1.9.23"
+    kotlin("jvm") version "2.1.21"
+    kotlin("plugin.allopen") version "2.1.21"
+    kotlin("plugin.noarg") version "2.1.21"
     id("io.quarkus")
 }
 
@@ -69,7 +69,15 @@ noArg {
     annotation("jakarta.persistence.Entity")
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
-    kotlinOptions.javaParameters = true
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+    compilerOptions {
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
+    }
 }

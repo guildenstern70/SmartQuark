@@ -1,18 +1,18 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 package net.littlelite.smartquark.service
 
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.inject.Inject
 import net.littlelite.smartquark.dto.PhoneDTO
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import jakarta.enterprise.context.ApplicationScoped
-import jakarta.inject.Inject
 
 @ApplicationScoped
 class DBInitializer(

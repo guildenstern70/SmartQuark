@@ -1,22 +1,14 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-24
+ * Copyright (c) Alessio Saltarin, 2021-25
  * This software is licensed under MIT License
  * See LICENSE
  */
 
 package net.littlelite.smartquark.dto
 
-import io.quarkus.runtime.annotations.RegisterForReflection
 import net.littlelite.smartquark.model.Person
-import jakarta.enterprise.context.SessionScoped
-import jakarta.ws.rs.Path
-import kotlinx.serialization.Serializable
 
-@RegisterForReflection
-@Path("/person")
-@SessionScoped
-@Serializable
 data class PersonDTO(
         val id: Int,
         val name: String,
