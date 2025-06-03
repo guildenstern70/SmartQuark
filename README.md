@@ -1,6 +1,5 @@
 ## SmartQuark
 
-![GitHub Actions](https://github.com/guildenstern70/SmartQuark/actions/workflows/gradle.yml/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b6c1766de094783827f508e9aedf355)](https://www.codacy.com/gh/guildenstern70/SmartQuark/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guildenstern70/SmartQuark&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -11,7 +10,7 @@ A template project featuring Quarkus written in Kotlin.
     gradle quarkusDev
 
 This project makes use of Quarkus Dev Services, that allow you to run a Postgres database in a container.
-In order to run project and the database, you need to have Docker installed and running.
+To run the project and the database, you need to have Docker installed and running.
 There is also a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/
 
 ### Packaging and running the application
@@ -32,7 +31,7 @@ It produces the `smartquark-[version]-runner.jar` file in the `build` directory.
 
 ### Creating a native executable
 
-Native version *cannot work with embedded H2 database*. It is recommended to create an 
+It is recommended to create an 
 external Postgres database and specify its coordinates as environment variables, as shown
 in 'run-native-example.sh' script. 
 
