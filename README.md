@@ -1,6 +1,5 @@
 ## SmartQuark
 
-![GitHub Actions](https://github.com/guildenstern70/SmartQuark/actions/workflows/gradle.yml/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b6c1766de094783827f508e9aedf355)](https://www.codacy.com/gh/guildenstern70/SmartQuark/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guildenstern70/SmartQuark&amp;utm_campaign=Badge_Grade)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,15 +9,9 @@ A template project featuring Quarkus written in Kotlin.
 
     gradle quarkusDev
 
-This project makes use of Quarkus Dev Services, which allows you to run a PostgreSQL database in a container.
-In order to run project and the database, you need to have Docker installed and running.
+This project makes use of Quarkus Dev Services, that allow you to run a Postgres database in a container.
+To run the project and the database, you need to have Docker or Podman installed and running.
 There is also a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/
-
-### Kotlin Version
-
-Note that the Kotlin runtime version must meet the Quarkus-Kotlin plugin Kotlin version
-
-    gradle dependencies | grep kotlin
 
 ### Packaging and running the application
 
@@ -38,8 +31,8 @@ It produces the `smartquark-[version]-runner.jar` file in the `build` directory.
 
 ### Creating a native executable
 
-Native version *cannot work with embedded H2 database*. It is recommended to create an 
-external Postgres database and specify its coordinats as environment variables, as shown
+It is recommended to create an 
+external Postgres database and specify its coordinates as environment variables, as shown
 in 'run-native-example.sh' script. 
 
 First, download and install GraalVM CE Java 17.
@@ -95,3 +88,10 @@ To run it:
     ./run-docker-native
 
 (the above script calls an environment file to pass needed environment variables)
+
+### Kotlin Version
+
+Note that the Kotlin runtime version should meet the Quarkus-Kotlin plugin Kotlin version
+
+    gradle dependencies | grep kotlin
+
