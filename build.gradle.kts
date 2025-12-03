@@ -40,7 +40,6 @@ dependencies {
     implementation("io.quarkus:quarkus-smallrye-health")
     implementation("io.quarkus:quarkus-smallrye-openapi")
     implementation("io.quarkus:quarkus-smallrye-graphql")
-    implementation("org.jspecify:jspecify")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation("io.rest-assured:rest-assured")
