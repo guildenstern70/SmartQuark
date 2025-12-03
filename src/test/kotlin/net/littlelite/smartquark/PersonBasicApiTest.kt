@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test
 
 @QuarkusTest
 @DisplayName("Person API")
-class PersonAPITest
+class PersonBasicApiTest
 {
     @Test
     @DisplayName("should get one person")

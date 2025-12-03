@@ -16,6 +16,6 @@ interface SmartQuark
     @WithDefault("SmartQuark")
     fun name(): String?
 
-    @WithDefault("0.9.0")
+    @WithDefault("0.9.1")
     fun version(): String?
 }

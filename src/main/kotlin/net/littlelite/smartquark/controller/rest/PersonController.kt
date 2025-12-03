@@ -13,6 +13,7 @@ import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.core.Response
 import jakarta.ws.rs.core.UriBuilder
 import net.littlelite.smartquark.dto.PersonDTO
+import net.littlelite.smartquark.dto.PatchPersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation
@@ -69,12 +70,42 @@ class PersonController : BaseRestController()
         val createdPerson = this.personService.addPerson(personDTO)
         return Response.created(
                 UriBuilder
-                        .fromResource(PersonDTO::class.java)
+                        .fromPath("/person")
                         .path(createdPerson.id.toString())
                         .build()
                 )
                 .entity(createdPerson)
                 .build()
+    }
+
+    @PATCH
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Patch a person (partial update)")
+    fun patchPerson(@PathParam("id") id: Int, patch: PatchPersonDTO): Response
+    {
+        try {
+            val updated = this.personService.patchPerson(id, patch) ?: return this.notFound("Person")
+            return Response.ok(updated).build()
+        } catch (e: IllegalArgumentException) {
+            logger.warn("Invalid patch request: ${'$'}{e.message}")
+            return this.badRequest("Person")
+        }
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Put a person (full replace)")
+    fun putPerson(@PathParam("id") id: Int, personDTO: PersonDTO): Response
+    {
+        try {
+            val updated = this.personService.putPerson(id, personDTO) ?: return this.notFound("Person")
+            return Response.ok(updated).build()
+        } catch (e: IllegalArgumentException) {
+            logger.warn("Invalid put request: ${'$'}{e.message}")
+            return this.badRequest("Person")
+        }
     }
 
     @DELETE

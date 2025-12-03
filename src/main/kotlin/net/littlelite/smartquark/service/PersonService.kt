@@ -16,6 +16,7 @@ import net.littlelite.smartquark.dao.PersonDAO
 import net.littlelite.smartquark.dao.PhoneDAO
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.PhoneDTO
+import net.littlelite.smartquark.dto.PatchPersonDTO
 import net.littlelite.smartquark.model.Person
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -74,6 +75,53 @@ class PersonService
     fun deletePerson(personId: Int): Boolean
     {
         return this.personDAO.deleteById(personId)
+    }
+
+    @Transactional
+    fun patchPerson(personId: Int, patch: PatchPersonDTO): PersonDTO?
+    {
+        val person = this.personDAO.findById(personId) ?: return null
+
+        // validation
+        patch.age?.let {
+            if (it < 0) throw IllegalArgumentException("Age must be >= 0")
+        }
+        patch.name?.let {
+            if (it.isBlank()) throw IllegalArgumentException("Name cannot be blank")
+        }
+        patch.surname?.let {
+            if (it.isBlank()) throw IllegalArgumentException("Surname cannot be blank")
+        }
+
+        // apply changes (phones replacement included in PatchPersonDTO.applyTo)
+        patch.applyTo(person)
+
+        // entity is managed; changes will be flushed at transaction commit
+        return PersonDTO.fromPerson(person)
+    }
+
+    @Transactional
+    fun putPerson(personId: Int, personDTO: PersonDTO): PersonDTO?
+    {
+        val person = this.personDAO.findById(personId) ?: return null
+
+        // validation (full replace requires all fields)
+        if (personDTO.age < 0) throw IllegalArgumentException("Age must be >= 0")
+        if (personDTO.name.isBlank()) throw IllegalArgumentException("Name cannot be blank")
+        if (personDTO.surname.isBlank()) throw IllegalArgumentException("Surname cannot be blank")
+
+        // full replace of scalar fields
+        person.name = personDTO.name
+        person.surname = personDTO.surname
+        person.age = personDTO.age
+
+        // replace phones completely
+        val existing = person.getPhones().toList()
+        existing.forEach { person.removePhone(it) }
+        personDTO.phones.forEach { person.addPhone(it.toPhone()) }
+
+        // entity is managed; changes will be flushed at transaction commit
+        return PersonDTO.fromPerson(person)
     }
 
     fun findByAge(ageMin: Int, ageMax: Int): List<PersonDTO>

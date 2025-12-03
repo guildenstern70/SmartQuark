@@ -1,6 +1,6 @@
 smartquark:
   name: SmartQuark
-  version: 0.9.0
+  version: 0.9.1
 quarkus:
   application:
     name: ${smartquark.name}
@@ -17,7 +17,6 @@ quarkus:
   log:
     level: INFO
     console:
-      enable: true
       format: "%d{HH:mm:ss} %-5p [%c{2.}] %s%e%n"
       level: DEBUG
   native:
@@ -27,7 +26,7 @@ quarkus:
         - "resources/*.yaml"
   swagger-ui:
     always-include: true
-    theme: "feeling-blue"
+    theme: "Flattop"
     title: "SmartQuark API | Swagger UI"
     urls-primary-name: "SmartQuark API"
   profile: default
