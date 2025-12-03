@@ -11,9 +11,6 @@ quarkus:
     color: true
   datasource:
     db-kind: postgresql
-  hibernate-orm:
-    jdbc:
-      statement-batch-size: 20
   log:
     level: INFO
     console:

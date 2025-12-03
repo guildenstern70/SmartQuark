@@ -5,7 +5,7 @@
  * See LICENSE
  */
 
-package net.littlelite.smartquark.service;
+package net.littlelite.smartquark.service
 
 import io.quarkus.runtime.StartupEvent
 import jakarta.enterprise.context.ApplicationScoped

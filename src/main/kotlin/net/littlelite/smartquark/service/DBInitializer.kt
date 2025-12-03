@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory
 
 @ApplicationScoped
 class DBInitializer(
-        @ConfigProperty(name= "quarkus.datasource.jdbc.url")
+        @param:ConfigProperty(name = "quarkus.datasource.jdbc.url")
         private val dbUrl: String
 )
 {
