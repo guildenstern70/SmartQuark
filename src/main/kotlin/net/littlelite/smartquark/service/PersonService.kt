@@ -71,6 +71,12 @@ class PersonService
         return PersonDTO.fromPerson(person)
     }
 
+    fun getPhonesByPersonId(personId: Int): List<PhoneDTO>?
+    {
+        val person = this.personDAO.findById(personId) ?: return null
+        return person.getPhones().map { PhoneDTO.fromPhone(it) }
+    }
+
     @Transactional
     fun deletePerson(personId: Int): Boolean
     {
@@ -122,6 +128,20 @@ class PersonService
 
         // entity is managed; changes will be flushed at transaction commit
         return PersonDTO.fromPerson(person)
+    }
+
+    @Transactional
+    fun replacePhones(personId: Int, phones: List<PhoneDTO>): List<PhoneDTO>?
+    {
+        val person = this.personDAO.findById(personId) ?: return null
+
+        // replace phones completely
+        val existing = person.getPhones().toList()
+        existing.forEach { person.removePhone(it) }
+        phones.forEach { person.addPhone(it.toPhone()) }
+
+        // return updated list as DTOs
+        return person.getPhones().map { PhoneDTO.fromPhone(it) }
     }
 
     fun findByAge(ageMin: Int, ageMax: Int): List<PersonDTO>
