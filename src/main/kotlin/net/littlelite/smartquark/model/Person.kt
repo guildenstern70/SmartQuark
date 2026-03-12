@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-25
+ * Copyright (c) Alessio Saltarin, 2021-26
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import io.quarkus.runtime.annotations.RegisterForReflection
 import jakarta.persistence.*
 
-@Suppress("JpaObjectClassSignatureInspection")
 @Entity
 @RegisterForReflection
 data class Person(
@@ -20,7 +19,7 @@ data class Person(
         var age: Int
 )
 {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0
 
     @OneToMany(mappedBy = "person", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)

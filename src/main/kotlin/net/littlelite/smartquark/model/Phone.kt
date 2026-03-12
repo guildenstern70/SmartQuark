@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-25
+ * Copyright (c) Alessio Saltarin, 2021-26
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -10,7 +10,6 @@ package net.littlelite.smartquark.model
 import io.quarkus.runtime.annotations.RegisterForReflection
 import jakarta.persistence.*
 
-@Suppress("JpaObjectClassSignatureInspection")
 @Entity
 @RegisterForReflection
 class Phone(
@@ -19,7 +18,7 @@ class Phone(
 )
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0
 
     @ManyToOne

@@ -1,6 +1,6 @@
 smartquark:
   name: SmartQuark
-  version: 0.9.1
+  version: 0.9.2
 quarkus:
   application:
     name: ${smartquark.name}
@@ -11,6 +11,11 @@ quarkus:
     color: true
   datasource:
     db-kind: postgresql
+  hibernate-orm:
+    # When Quarkus/Hibernate creates or recreates the DB schema, load this SQL script.
+    # The file path is relative to the classpath (src/main/resources). Use the same
+    # script we use for programmatic population so the DML is kept in one place.
+    sql-load-script: import.sql
   log:
     level: INFO
     console:

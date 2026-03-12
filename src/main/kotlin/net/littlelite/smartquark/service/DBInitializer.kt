@@ -1,6 +1,6 @@
 /*
  * The SmartQuark Project
- * Copyright (c) Alessio Saltarin, 2021-25
+ * Copyright (c) Alessio Saltarin, 2021-26
  * This software is licensed under MIT License
  * See LICENSE
  */
@@ -9,43 +9,78 @@ package net.littlelite.smartquark.service
 
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.inject.Inject
-import net.littlelite.smartquark.dto.PhoneDTO
-import org.eclipse.microprofile.config.inject.ConfigProperty
+import javax.sql.DataSource
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.sql.Connection
+import java.sql.Statement
 
 @ApplicationScoped
-class DBInitializer(
-        @param:ConfigProperty(name = "quarkus.datasource.jdbc.url")
-        private val dbUrl: String
-)
+class DBInitializer
 {
     private val logger: Logger = LoggerFactory.getLogger(DBInitializer::class.java)
 
     @Inject
-    lateinit var personService: PersonService
+    private lateinit var personService: PersonService
+
+    @Inject
+    private lateinit var dataSource: DataSource
 
     fun populateDB()
     {
         if (this.personService.getPersonCount() == 0L)
         {
-            logger.info("Populating DB $dbUrl")
-            val alessioPhones = setOf(
-                PhoneDTO("348", "39290022"),
-                PhoneDTO("333", "32233232")
-            )
-            val renzoPhones = setOf(
-                PhoneDTO("348", "12809128")
-            )
-            val elenaPhones = setOf(
-                PhoneDTO("349", "23223323"),
-                PhoneDTO("334", "32332232")
-            )
-            this.personService.addPerson("Alessio", "Saltarin", 50, alessioPhones)
-            this.personService.addPerson("Renzo", "Piano", 99, renzoPhones)
-            this.personService.addPerson("Elena", "Zambrelli", 25, elenaPhones)
-            logger.info("Done.")
+            logger.info("Populating DB")
+
+            val sqlStream = this::class.java.classLoader.getResourceAsStream("import.sql")
+            if (sqlStream != null) {
+                logger.info("Found import.sql on classpath, executing script...")
+                try {
+                    sqlStream.use { stream ->
+                        dataSource.connection.use { conn ->
+                            executeSqlScript(conn, stream)
+                        }
+                    }
+                    logger.info("import.sql executed successfully")
+                    return
+                } catch (ex: Exception) {
+                    logger.error("Failed to execute import.sql, falling back to programmatic population", ex)
+                }
+            } else {
+                logger.info("import.sql not found on classpath, using programmatic population")
+            }
+
+            logger.info("Done programmatic population.")
         }
+    }
+
+    private fun executeSqlScript(conn: Connection, sqlStream: java.io.InputStream)
+    {
+        val reader = BufferedReader(InputStreamReader(sqlStream))
+        val sb = StringBuilder()
+        reader.useLines { lines ->
+            lines.forEach { line ->
+                val trimmed = line.trim()
+                // skip comments and empty lines
+                if (trimmed.isEmpty() || trimmed.startsWith("--")) return@forEach
+                sb.append(line).append('\n')
+            }
+        }
+
+        val script = sb.toString()
+        val statements = script.split(Regex(";\\s*\n"))
+        conn.autoCommit = false
+        conn.createStatement().use { stmt: Statement ->
+            for (s in statements) {
+                val sql = s.trim()
+                if (sql.isEmpty()) continue
+                stmt.addBatch(sql)
+            }
+            stmt.executeBatch()
+        }
+        conn.commit()
     }
 
 }
