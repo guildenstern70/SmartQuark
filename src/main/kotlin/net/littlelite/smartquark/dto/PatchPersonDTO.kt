@@ -22,13 +22,13 @@ data class PatchPersonDTO(
         this.name?.let { person.name = it }
         this.surname?.let { person.surname = it }
         this.age?.let { person.age = it }
-        this.phones?.let {
+        this.phones?.let { dTOS ->
             // replace phones completely
             // remove existing
             val existing = person.getPhones().toList()
             existing.forEach { person.removePhone(it) }
             // add new
-            it.forEach { person.addPhone(it.toPhone()) }
+            dTOS.forEach { person.addPhone(it.toPhone()) }
         }
     }
 }

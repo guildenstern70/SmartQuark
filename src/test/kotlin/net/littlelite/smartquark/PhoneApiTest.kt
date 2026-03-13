@@ -10,7 +10,6 @@ package net.littlelite.smartquark
 import io.quarkus.test.junit.QuarkusTest
 import io.restassured.RestAssured.given
 import org.assertj.core.api.Assertions.assertThat
-import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
