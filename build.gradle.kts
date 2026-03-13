@@ -47,7 +47,7 @@ dependencies {
 }
 
 group = "net.littlelite.smartquark"
-version = "0.9.2"
+version = "0.9.4"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_25

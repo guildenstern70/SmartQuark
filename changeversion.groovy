@@ -6,8 +6,8 @@
  * See LICENSE
  */
 
-OLD_VERSION = '0.9.1'
-NEW_VERSION = '0.9.2'
+OLD_VERSION = '0.9.2'
+NEW_VERSION = '0.9.4'
 
 def versionFiles = [
         './src/main/kotlin/net/littlelite/smartquark/Main.kt',
