@@ -95,3 +95,10 @@ Note that the Kotlin runtime version should meet the Quarkus-Kotlin plugin Kotli
 
     gradle dependencies | grep kotlin
 
+### FAQ
+
+Q: I am getting an error like "Unable to find datasource '<default>' for persistence unit '<default>'".
+A: You must have a running Docker or Podman instance, as the project relies on Quarkus Dev Services to run a Postgres database in a container. 
+   Make sure Docker or Podman is installed and running on your machine.
+
+
