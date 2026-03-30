@@ -7,14 +7,20 @@
 
 package net.littlelite.smartquark.dto
 
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.Size
 import net.littlelite.smartquark.model.Person
 
 /** DTO for PATCH partial updates — all fields nullable */
 data class PatchPersonDTO(
+    @field:Size(min = 1)
     val name: String? = null,
+    @field:Size(min = 1)
     val surname: String? = null,
+    @field:Min(0)
     val age: Int? = null,
-    val phones: Set<PhoneDTO>? = null
+    val phones: Set<@Valid PhoneDTO>? = null
 )
 {
     fun applyTo(person: Person)

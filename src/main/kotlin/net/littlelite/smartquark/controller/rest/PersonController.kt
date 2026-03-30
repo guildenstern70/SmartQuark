@@ -12,6 +12,7 @@ import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.core.Response
 import jakarta.ws.rs.core.UriBuilder
+import jakarta.validation.Valid
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.PatchPersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
@@ -65,7 +66,7 @@ class PersonController : BaseRestController()
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Create a person")
-    fun createPerson(personDTO: PersonDTO): Response
+    fun createPerson(@Valid personDTO: PersonDTO): Response
     {
         val createdPerson = this.personService.addPerson(personDTO)
         return Response.created(
@@ -82,30 +83,20 @@ class PersonController : BaseRestController()
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Patch a person (partial update)")
-    fun patchPerson(@PathParam("id") id: Int, patch: PatchPersonDTO): Response
+    fun patchPerson(@PathParam("id") id: Int, @Valid patch: PatchPersonDTO): Response
     {
-        try {
-            val updated = this.personService.patchPerson(id, patch) ?: return this.notFound("Person")
-            return Response.ok(updated).build()
-        } catch (e: IllegalArgumentException) {
-            logger.warn("Invalid patch request: ${'$'}{e.message}")
-            return this.badRequest("Person")
-        }
+        val updated = this.personService.patchPerson(id, patch) ?: return this.notFound("Person")
+        return Response.ok(updated).build()
     }
 
     @PUT
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(summary = "Put a person (full replace)")
-    fun putPerson(@PathParam("id") id: Int, personDTO: PersonDTO): Response
+    fun putPerson(@PathParam("id") id: Int, @Valid personDTO: PersonDTO): Response
     {
-        try {
-            val updated = this.personService.putPerson(id, personDTO) ?: return this.notFound("Person")
-            return Response.ok(updated).build()
-        } catch (e: IllegalArgumentException) {
-            logger.warn("Invalid put request: ${'$'}{e.message}")
-            return this.badRequest("Person")
-        }
+        val updated = this.personService.putPerson(id, personDTO) ?: return this.notFound("Person")
+        return Response.ok(updated).build()
     }
 
     @DELETE

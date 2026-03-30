@@ -1,16 +1,4 @@
-1. Implement Jakarta Bean Validation
-   Currently, validation is performed manually within the service layer (e.g., if (it < 0) throw IllegalArgumentException(...) in PersonService.patchPerson).
-   •
-   Improvement: Use jakarta.validation.constraints (Hibernate Validator) on the DTOs.
-   •
-   Example:
-   data class PersonDTO(
-   @field:NotBlank val name: String,
-   @field:Min(0) val age: Int,
-   // ...
-   )
-   •
-   Why: This is the standard Quarkus/Jakarta EE way. It automatically generates 400 Bad Request responses with detailed error messages before your service logic is even reached.
+
 2. Centralized Exception Handling
    The project uses a custom BaseRestController and RestExceptionMapper.
    •

@@ -7,14 +7,21 @@
 
 package net.littlelite.smartquark.dto
 
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotNull
 import net.littlelite.smartquark.model.Person
 
 data class PersonDTO(
         val id: Int,
+        @field:NotBlank
         val name: String,
+        @field:NotBlank
         val surname: String,
+        @field:Min(0)
         val age: Int,
-        val phones: Set<PhoneDTO>
+        @field:NotNull
+        var phones: Set<@jakarta.validation.Valid PhoneDTO>
 )
 {
 

@@ -7,10 +7,15 @@
 
 package net.littlelite.smartquark.dto
 
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Pattern
 import net.littlelite.smartquark.model.Phone
 
 data class PhoneDTO(
+    @field:NotBlank
     val prefix: String = "",
+    @field:NotBlank
+    @field:Pattern(regexp = "^\\d{6,15}$")
     val number: String = ""
     )
 {

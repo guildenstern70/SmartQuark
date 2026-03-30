@@ -87,18 +87,6 @@ class PersonService
     fun patchPerson(personId: Int, patch: PatchPersonDTO): PersonDTO?
     {
         val person = this.personDAO.findById(personId) ?: return null
-
-        // validation
-        patch.age?.let {
-            if (it < 0) throw IllegalArgumentException("Age must be >= 0")
-        }
-        patch.name?.let {
-            if (it.isBlank()) throw IllegalArgumentException("Name cannot be blank")
-        }
-        patch.surname?.let {
-            if (it.isBlank()) throw IllegalArgumentException("Surname cannot be blank")
-        }
-
         // apply changes (phones replacement included in PatchPersonDTO.applyTo)
         patch.applyTo(person)
 
@@ -110,11 +98,6 @@ class PersonService
     fun putPerson(personId: Int, personDTO: PersonDTO): PersonDTO?
     {
         val person = this.personDAO.findById(personId) ?: return null
-
-        // validation (full replace requires all fields)
-        if (personDTO.age < 0) throw IllegalArgumentException("Age must be >= 0")
-        if (personDTO.name.isBlank()) throw IllegalArgumentException("Name cannot be blank")
-        if (personDTO.surname.isBlank()) throw IllegalArgumentException("Surname cannot be blank")
 
         // full replace of scalar fields
         person.name = personDTO.name
