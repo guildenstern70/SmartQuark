@@ -66,6 +66,17 @@ Examples of code patterns agents can edit safely
 - Adding a new GraphQL query: mirror `PersonResource.kt` pattern — inject service, add `@get:Query` property or method returning DTOs.
 - Changing transactional semantics: update `@Transactional` methods in `service/` only — DAOs assume entity manager is managed.
 - DTO -> Entity mapping: use existing `PersonDTO.toPerson()` and `fromPerson()` helpers to preserve mapping conventions.
+- Jakarta Bean Validation (code pattern):
+  - Use `jakarta.validation.constraints` on DTOs to validate at the boundary: annotate Kotlin constructor properties with `@field:` targets (e.g. `@field:NotBlank`, `@field:Min(0)`).
+  - For nested/collection DTOs, prefer type-use validation: `Set<@Valid PhoneDTO>` so element constraints are validated.
+  - Add `@Valid` on controller/resource method parameters so Quarkus runs validation before service logic.
+  - Keep services free of basic input checks (remove `IllegalArgumentException` guards); services should assume boundary-validated inputs and perform only business-specific validations.
+  - Representative files to inspect/edit: `build.gradle.kts` (add `io.quarkus:quarkus-hibernate-validator`), `src/main/kotlin/.../dto/*`, controller/resource files (add `@Valid`), and `service/*` (remove manual checks).
+
+Testing and verification notes
+- Run the test suite after changes: `./gradlew clean test`. The build includes the validator and unit/integration tests should pass.
+- When testing manually, invalid payloads sent to controller endpoints should return HTTP 400 with a Quarkus validation payload describing the constraint violations.
+- If you have tests that previously expected `IllegalArgumentException` from services, update them to assert controller 400 responses or adapt unit tests to provide valid inputs when calling services directly.
 
 Quick navigation pointers (files to open first)
 - `build.gradle.kts` — dependencies, Kotlin/Java versions, gradle plugin config.
