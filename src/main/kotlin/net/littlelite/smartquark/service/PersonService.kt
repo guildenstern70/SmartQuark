@@ -62,7 +62,15 @@ class PersonService
 
     fun getPersonCount(): Long
     {
-        return this.personDAO.count()
+        try
+        {
+            return this.personDAO.count()
+        }
+        catch (_: Exception)
+        {
+            logger.warn("Cannot find persons in DB. Maybe it's empty?")
+            return 0L
+        }
     }
 
     fun getPerson(id: Int): PersonDTO?

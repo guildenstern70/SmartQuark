@@ -9,14 +9,14 @@
 # These commands build a Linux Executable file to be embedded into a container
 
 # Database Variables needed for tests
-export DB_KIND=postgresql
-export DB_URL=jdbc:postgresql://****
-export DB_USERNAME=****
-export DB_PASSWORD=****
+export QUARKUS_DATASOURCE_JDBC_URL='postgresql://aws-0-eu-west-1.pooler.supabase.com:6543/postgres'
+export QUARKUS_DATASOURCE_USERNAME='postgres'
+export QUARKUS_DATASOURCE_PASSWORD='************'
+export QUARKUS_HIBERNATE-ORM_SCHEMA-MANAGEMENT_STRATEGY=drop-and-create
 
 # JVM Variables
 export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ce-java11-21.3.0/Contents/Home
 export JAVA_HOME=${GRAALVM_HOME}
 ./gradlew clean
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+./gradlew build -Dquarkus.native.enabled=true -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
 

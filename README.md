@@ -31,17 +31,14 @@ It produces the `smartquark-[version]-runner.jar` file in the `build` directory.
 
 ### Creating a native executable
 
-It is recommended to create an 
-external Postgres database and specify its coordinates as environment variables, as shown
-in 'run-native-example.sh' script. 
+It is recommended to create an external Postgres database and specify its coordinates as 
+environment variables, as shown in 'run-native-example.sh' script. 
 
-First, download and install GraalVM CE Java 17.
+First, download and install GraalVM CE Java 21.
 
-    export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-jdk-17.0.8+9.1/Contents/Home
+Install native extensions
 
-install native extensions
-
-    cd /Library/Java/JavaVirtualMachines/graalvm-jdk-17.0.8+9.1/Contents/Home/bin
+    cd /Library/Java/JavaVirtualMachines/graalvm-21.jdk/Contents/Home/bin
     ./gu install native-image
 
 Now, you can create a native executable using: `./build-native`.
