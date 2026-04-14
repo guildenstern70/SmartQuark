@@ -7,7 +7,6 @@
 
 package net.littlelite.smartquark.graphql
 
-import jakarta.inject.Inject
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.graphql.Description
@@ -15,11 +14,8 @@ import org.eclipse.microprofile.graphql.GraphQLApi
 import org.eclipse.microprofile.graphql.Query
 
 @GraphQLApi
-class PersonResource
+class PersonResource(private val personService: PersonService)
 {
-    @Inject
-    lateinit var personService: PersonService
-
     @get:Description("Get all persons")
     @get:Query("allPersons")
     val allUsers: List<PersonDTO>

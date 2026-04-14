@@ -13,7 +13,7 @@ import jakarta.persistence.*
 
 @Entity
 @RegisterForReflection
-data class Person(
+class Person(
         var name: String,
         var surname: String,
         var age: Int

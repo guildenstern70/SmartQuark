@@ -8,25 +8,20 @@
 package net.littlelite.smartquark.service
 
 import jakarta.enterprise.context.ApplicationScoped
-import jakarta.inject.Inject
-import javax.sql.DataSource
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.sql.Connection
 import java.sql.Statement
+import javax.sql.DataSource
 
 @ApplicationScoped
-class DBInitializer
+class DBInitializer(private val personService: PersonService,
+    private val dataSource: DataSource)
 {
+
     private val logger: Logger = LoggerFactory.getLogger(DBInitializer::class.java)
-
-    @Inject
-    private lateinit var personService: PersonService
-
-    @Inject
-    private lateinit var dataSource: DataSource
 
     fun populateDB()
     {

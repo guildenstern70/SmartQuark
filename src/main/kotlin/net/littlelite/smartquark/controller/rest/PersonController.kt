@@ -8,13 +8,13 @@
 package net.littlelite.smartquark.controller.rest
 
 import jakarta.inject.Inject
+import jakarta.validation.Valid
 import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.core.Response
 import jakarta.ws.rs.core.UriBuilder
-import jakarta.validation.Valid
-import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.PatchPersonDTO
+import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.ResultDTO
 import net.littlelite.smartquark.service.PersonService
 import org.eclipse.microprofile.openapi.annotations.Operation

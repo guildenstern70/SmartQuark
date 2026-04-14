@@ -19,15 +19,9 @@ import jakarta.ws.rs.core.MediaType
 import net.littlelite.smartquark.config.SmartQuark
 
 @Path("/")
-class WebController
+class WebController(private val index: Template,
+    private val smartQuark: SmartQuark)
 {
-    @Inject
-    @field: Default
-    lateinit var index: Template
-
-    @Inject
-    lateinit var smartquark: SmartQuark
-
     @GET
     @Produces(MediaType.TEXT_HTML)
     fun homePage(): TemplateInstance
@@ -38,7 +32,7 @@ class WebController
             profile = profiles[0].toString()
         }
         return this.index
-            .data("version", smartquark.version())
+            .data("version", smartQuark.version())
             .data("profile", profile)
     }
 

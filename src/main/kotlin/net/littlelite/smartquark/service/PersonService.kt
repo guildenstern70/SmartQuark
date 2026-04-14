@@ -8,32 +8,21 @@
 package net.littlelite.smartquark.service
 
 import jakarta.enterprise.context.ApplicationScoped
-import jakarta.enterprise.inject.Default
-import jakarta.inject.Inject
-import jakarta.persistence.EntityManager
 import jakarta.transaction.Transactional
 import net.littlelite.smartquark.dao.PersonDAO
 import net.littlelite.smartquark.dao.PhoneDAO
+import net.littlelite.smartquark.dto.PatchPersonDTO
 import net.littlelite.smartquark.dto.PersonDTO
 import net.littlelite.smartquark.dto.PhoneDTO
-import net.littlelite.smartquark.dto.PatchPersonDTO
 import net.littlelite.smartquark.model.Person
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 
 @ApplicationScoped
-class PersonService
+class PersonService(private val personDAO: PersonDAO,
+                          private val phoneDAO: PhoneDAO)
 {
-    @Inject
-    @field: Default
-    lateinit var em: EntityManager
-
-    @Inject
-    lateinit var personDAO: PersonDAO
-
-    @Inject
-    lateinit var phoneDAO: PhoneDAO
 
     private val logger: Logger = LoggerFactory.getLogger(PersonService::class.java)
 
