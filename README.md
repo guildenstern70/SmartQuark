@@ -5,6 +5,8 @@
 
 A template project featuring Quarkus written in Kotlin.
 
+![screenshot.png](screenshot.png)
+
 ### Development mode
 
     gradle quarkusDev
