@@ -10,8 +10,8 @@ package net.littlelite.smartquark.controller.web
 import io.quarkus.qute.Template
 import io.quarkus.qute.TemplateInstance
 import io.quarkus.runtime.configuration.ConfigUtils
-import jakarta.enterprise.inject.Default
 import jakarta.inject.Inject
+import jakarta.enterprise.context.RequestScoped
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
@@ -19,7 +19,8 @@ import jakarta.ws.rs.core.MediaType
 import net.littlelite.smartquark.config.SmartQuark
 
 @Path("/")
-class WebController(private val index: Template,
+@RequestScoped
+class WebController @Inject constructor(private val index: Template,
     private val smartQuark: SmartQuark)
 {
     @GET

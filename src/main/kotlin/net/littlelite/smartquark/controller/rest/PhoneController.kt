@@ -8,6 +8,7 @@
 package net.littlelite.smartquark.controller.rest
 
 import jakarta.inject.Inject
+import jakarta.enterprise.context.RequestScoped
 import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.core.Response
@@ -20,10 +21,11 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag
 @Consumes("application/json")
 @Path("/phone")
 @Tag(name = "Phone Controller", description = "Phone related APIs")
-class PhoneController : BaseRestController()
+@RequestScoped
+class PhoneController @Inject constructor(
+    private val personService: PersonService
+) : BaseRestController()
 {
-    @Inject
-    lateinit var personService: PersonService
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

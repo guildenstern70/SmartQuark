@@ -8,6 +8,7 @@
 package net.littlelite.smartquark.controller.rest
 
 import jakarta.inject.Inject
+import jakarta.enterprise.context.RequestScoped
 import jakarta.validation.Valid
 import jakarta.ws.rs.*
 import jakarta.ws.rs.core.MediaType
@@ -25,12 +26,12 @@ import org.slf4j.LoggerFactory
 
 @Path("/person")
 @Tag(name = "Person Controller", description = "Person related APIs")
-class PersonController : BaseRestController()
+@RequestScoped
+class PersonController @Inject constructor(
+    private val personService: PersonService
+) : BaseRestController()
 {
-    private val logger: Logger = LoggerFactory.getLogger(PersonService::class.java)
-
-    @Inject
-    lateinit var personService: PersonService
+    private val logger: Logger = LoggerFactory.getLogger(PersonController::class.java)
 
     @GET
     @Operation(summary = "Get all persons")
