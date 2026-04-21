@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A template project featuring Quarkus written in Kotlin.
+Looking for the Java version? Check out the [Java Edition](https://github.com/guildenstern70/SmartQuarkJava)
 
 ![screenshot.png](screenshot.png)
 

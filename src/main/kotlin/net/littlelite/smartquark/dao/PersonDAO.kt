@@ -11,7 +11,6 @@ import io.quarkus.hibernate.orm.panache.kotlin.PanacheRepositoryBase
 import jakarta.enterprise.context.ApplicationScoped
 import net.littlelite.smartquark.model.Person
 
-
 @ApplicationScoped
 class PersonDAO : PanacheRepositoryBase<Person, Int>
 {
