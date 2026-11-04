@@ -27,10 +27,7 @@ quarkus:
       includes:
         - "resources/*.yaml"
   swagger-ui:
-    always-include: true
-    theme: "Flattop"
-    title: "SmartQuark API | Swagger UI"
-    urls-primary-name: "SmartQuark API"
+    enabled: false
   profile: default
   smallrye-health:
     ui:
@@ -51,7 +48,8 @@ mp:
             name: Alessio Saltarin
     scan:
       exclude:
-        classes: net.littlelite.smartquark.controller.web.WebController
+        packages: net.littlelite.smartquark.controller.web
+        classes: net.littlelite.smartquark.controller.web.WebController,net.littlelite.smartquark.controller.web.ScalarController
 
 
 
