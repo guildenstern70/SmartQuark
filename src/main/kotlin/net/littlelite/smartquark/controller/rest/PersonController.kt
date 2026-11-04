@@ -44,7 +44,7 @@ class PersonController @Inject constructor(
 
     @GET
     @Path("/{id}")
-    @Operation(summary = "Get all persons")
+    @Operation(summary = "Get one person by id")
     fun getOnePerson(@PathParam("id") id: Int): Response
     {
         val person = this.personService.getPerson(id) ?: return this.notFound("Person")
