@@ -40,12 +40,17 @@ dependencies {
     implementation("io.quarkus:quarkus-smallrye-health")
     implementation("io.quarkus:quarkus-smallrye-openapi")
     implementation("io.quarkus:quarkus-smallrye-graphql")
+    implementation("io.smallrye:smallrye-graphql-ui-graphiql:2.17.0")
     implementation("io.quarkus:quarkus-hibernate-validator")
     implementation("io.quarkus:quarkus-micrometer-registry-prometheus")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("org.assertj:assertj-core:3.27.7")
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("io.rest-assured:kotlin-extensions")
+}
+
+configurations.all {
+    resolutionStrategy.force("io.smallrye:smallrye-graphql-ui-graphiql:2.17.0")
 }
 
 group = "net.littlelite.smartquark"
